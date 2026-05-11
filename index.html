@@ -1,0 +1,1546 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blooming Muse — Catálogo de Diseños</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+  /* ============================================
+     BLOOMING MUSE — CATÁLOGO DE DISEÑOS
+     Archivo modificable — editar variables
+     para actualizar precios y contenido
+  ============================================ */
+
+  /* === VARIABLES DE MARCA (editar aquí) === */
+  :root {
+    --cream:      #F0EDE6;
+    --warm:       #E8E2D9;
+    --parchment:  #DDD6CC;
+    --ink:        #2C2A26;
+    --ink-light:  #5A5751;
+    --muted:      #8A8480;
+    --rose:       #C4A4A0;
+    --rose-deep:  #9B6E6A;
+    --sage:       #8A9B82;
+    --dust:       #B8A89A;
+    --blush:      #E8D5D0;
+
+    --font-display: 'Cormorant Garamond', Georgia, serif;
+    --font-body:    'Jost', sans-serif;
+  }
+
+  /* === RESET === */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 14px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* === PRINT STYLES === */
+  @media print {
+    .no-print { display: none !important; }
+    body { background: white; }
+    .page-break { page-break-before: always; }
+    .bm-section { display: block !important; opacity: 1 !important; }
+    nav.bm-nav { display: none; }
+  }
+
+  /* === HEADER === */
+  .bm-header {
+    text-align: center;
+    padding: 4rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bm-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(196,164,160,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .bm-logo-svg {
+    width: 72px;
+    margin: 0 auto 1.5rem;
+    display: block;
+    opacity: 0.85;
+    animation: fadeUp 1s ease forwards;
+  }
+
+  .bm-eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 0.6rem;
+    animation: fadeUp 1s 0.1s ease both;
+  }
+
+  .bm-eyebrow span {
+    height: 0.5px;
+    width: 44px;
+    background: var(--muted);
+    display: block;
+  }
+
+  .bm-eyebrow p {
+    font-size: 10px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 300;
+  }
+
+  .bm-brand-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: clamp(38px, 6vw, 58px);
+    letter-spacing: 0.1em;
+    line-height: 1;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    animation: fadeUp 1s 0.2s ease both;
+  }
+
+  .bm-tagline {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 16px;
+    color: var(--muted);
+    letter-spacing: 0.04em;
+    animation: fadeUp 1s 0.3s ease both;
+  }
+
+  .bm-palette-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 2rem 0 1rem;
+    animation: fadeUp 1s 0.4s ease both;
+  }
+
+  .bm-dot {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 0.5px solid rgba(44,42,38,0.2);
+    transition: transform 0.2s;
+    cursor: default;
+  }
+  .bm-dot:hover { transform: scale(1.3); }
+
+  /* === NAV === */
+  nav.bm-nav {
+    display: flex;
+    justify-content: center;
+    border-top: 0.5px solid rgba(44,42,38,0.15);
+    border-bottom: 0.5px solid rgba(44,42,38,0.15);
+    background: var(--cream);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    gap: 0;
+  }
+
+  .bm-nav button {
+    font-family: var(--font-body);
+    font-weight: 300;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 1.1rem 1.8rem;
+    background: none;
+    border: none;
+    border-bottom: 1.5px solid transparent;
+    color: var(--muted);
+    cursor: pointer;
+    transition: all 0.25s;
+    white-space: nowrap;
+  }
+
+  .bm-nav button:hover,
+  .bm-nav button.active {
+    color: var(--ink);
+    border-bottom-color: var(--ink);
+  }
+
+  /* === SECTIONS === */
+  .bm-section {
+    display: none;
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+    animation: fadeUp 0.5s ease both;
+  }
+  .bm-section.active { display: block; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 300;
+    font-size: 34px;
+    letter-spacing: 0.07em;
+    margin-bottom: 0.4rem;
+  }
+
+  .section-sub {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .section-divider {
+    width: 36px;
+    height: 0.5px;
+    background: var(--parchment);
+    margin: 1rem auto;
+  }
+
+  /* ============================================
+     SECCIÓN: ARREGLOS
+  ============================================ */
+  .sizes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (max-width: 700px) {
+    .sizes-grid { grid-template-columns: 1fr; }
+  }
+
+  .size-card {
+    background: #FDFBF8;
+    border: 0.5px solid rgba(44,42,38,0.13);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.25s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .size-card:hover { transform: translateY(-4px); }
+
+  .size-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--rose), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .size-card:hover::after { opacity: 1; }
+
+  .card-visual {
+    background: var(--warm);
+    padding: 2.5rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    position: relative;
+  }
+
+  .card-visual svg {
+    width: 100%;
+    max-width: 130px;
+    height: auto;
+  }
+
+  .card-size-badge {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .card-body {
+    padding: 1.5rem 1.25rem;
+    border-top: 0.5px solid rgba(44,42,38,0.08);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card-name {
+    font-family: var(--font-display);
+    font-size: 22px;
+    font-weight: 400;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.03em;
+  }
+
+  .card-desc {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+    flex: 1;
+  }
+
+  .card-flowers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 1.25rem;
+  }
+
+  .flower-tag {
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    background: var(--blush);
+    color: var(--rose-deep);
+    border: 0.5px solid rgba(155,110,106,0.2);
+    border-radius: 0;
+  }
+
+  .flower-tag.green {
+    background: #EAF0E8;
+    color: #5A7050;
+    border-color: rgba(90,112,80,0.2);
+  }
+
+  .price-block {
+    border-top: 0.5px solid rgba(44,42,38,0.1);
+    padding-top: 1rem;
+    margin-top: auto;
+  }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding: 3px 0;
+  }
+
+  .price-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .price-val {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+  }
+
+  .price-val.tbd {
+    font-style: italic;
+    font-size: 14px;
+    color: var(--dust);
+  }
+
+  /* Campo editable de precio */
+  .price-input {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--ink);
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px dashed var(--parchment);
+    outline: none;
+    width: 120px;
+    text-align: right;
+    cursor: text;
+    transition: border-color 0.2s;
+  }
+
+  .price-input:focus {
+    border-bottom-color: var(--rose);
+  }
+
+  .price-input::placeholder {
+    color: var(--dust);
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  .jarron-note {
+    font-size: 10px;
+    color: var(--rose-deep);
+    letter-spacing: 0.06em;
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 0.5px dashed rgba(44,42,38,0.12);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  /* === CAJA JARRÓN === */
+  .jarron-section {
+    margin-top: 2.5rem;
+    background: #FDFBF8;
+    border: 0.5px solid rgba(44,42,38,0.12);
+    border-left: 2px solid var(--rose);
+    padding: 1.5rem 1.75rem;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .jarron-title {
+    font-family: var(--font-display);
+    font-size: 20px;
+    margin-bottom: 0.35rem;
+  }
+
+  .jarron-desc {
+    font-size: 12px;
+    color: var(--ink-light);
+    line-height: 1.75;
+  }
+
+  .jarron-price-block {
+    text-align: right;
+  }
+
+  .jarron-price-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  /* ============================================
+     SECCIÓN: FLORES DE TEMPORADA
+  ============================================ */
+  .flowers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .flower-card {
+    background: #FDFBF8;
+    border: 0.5px solid rgba(44,42,38,0.12);
+    overflow: hidden;
+    transition: transform 0.22s;
+  }
+
+  .flower-card:hover { transform: translateY(-3px); }
+
+  .flower-visual {
+    width: 100%;
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+  }
+
+  .flower-visual svg { width: 75%; height: 75%; }
+
+  .flower-info {
+    padding: 0.8rem 0.9rem;
+    border-top: 0.5px solid rgba(44,42,38,0.08);
+  }
+
+  .flower-name {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 400;
+    margin-bottom: 2px;
+  }
+
+  .flower-season {
+    font-size: 9px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--sage);
+    margin-bottom: 3px;
+  }
+
+  .flower-note {
+    font-size: 10px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.5;
+  }
+
+  /* ============================================
+     SECCIÓN: PALETA DE MARCA
+  ============================================ */
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .swatch-card {
+    border: 0.5px solid rgba(44,42,38,0.12);
+    overflow: hidden;
+    background: white;
+  }
+
+  .swatch-block {
+    width: 100%;
+    aspect-ratio: 4/3;
+  }
+
+  .swatch-info {
+    padding: 0.6rem 0.7rem;
+  }
+
+  .swatch-name {
+    font-family: var(--font-display);
+    font-size: 14px;
+    margin-bottom: 2px;
+  }
+
+  .swatch-hex {
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .swatch-role {
+    font-size: 9px;
+    color: var(--dust);
+    font-style: italic;
+    margin-top: 2px;
+  }
+
+  .typography-section {
+    background: #FDFBF8;
+    border: 0.5px solid rgba(44,42,38,0.12);
+    padding: 2rem 2.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .typo-title {
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .typo-row {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 0.5px solid rgba(44,42,38,0.08);
+  }
+  .typo-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .typo-label {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    min-width: 80px;
+  }
+
+  /* ============================================
+     SECCIÓN: EXTRAS
+  ============================================ */
+  .extras-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 600px) {
+    .extras-grid { grid-template-columns: 1fr; }
+  }
+
+  .extra-card {
+    background: #FDFBF8;
+    border: 0.5px solid rgba(44,42,38,0.12);
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  .extra-icon {
+    width: 44px;
+    height: 44px;
+    flex-shrink: 0;
+    background: var(--warm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .extra-icon svg { width: 26px; height: 26px; }
+
+  .extra-title {
+    font-family: var(--font-display);
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .extra-desc {
+    font-size: 11px;
+    color: var(--ink-light);
+    line-height: 1.7;
+    margin-bottom: 8px;
+  }
+
+  .extra-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+  }
+
+  .extra-price-label {
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* ============================================
+     FOOTER
+  ============================================ */
+  .bm-footer {
+    text-align: center;
+    padding: 3rem 2rem;
+    border-top: 0.5px solid rgba(44,42,38,0.12);
+    margin-top: 2rem;
+  }
+
+  .footer-logo {
+    font-family: var(--font-display);
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-tagline {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 13px;
+    color: var(--muted);
+    margin-bottom: 1rem;
+  }
+
+  .footer-links {
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* === EDIT TOOLBAR === */
+  .edit-toolbar {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: flex-end;
+  }
+
+  .toolbar-btn {
+    font-family: var(--font-body);
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 0.65rem 1.2rem;
+    background: var(--ink);
+    color: var(--cream);
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s;
+    white-space: nowrap;
+  }
+
+  .toolbar-btn:hover { background: var(--rose-deep); }
+  .toolbar-btn.secondary {
+    background: var(--cream);
+    color: var(--ink);
+    border: 0.5px solid rgba(44,42,38,0.3);
+  }
+  .toolbar-btn.secondary:hover { background: var(--warm); }
+
+  /* === ANIMATIONS === */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* === MISC HELPERS === */
+  .edit-hint {
+    font-size: 10px;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+    padding: 0.75rem;
+    border: 0.5px dashed rgba(44,42,38,0.2);
+    margin-bottom: 2rem;
+    letter-spacing: 0.05em;
+  }
+
+  .edit-hint strong {
+    font-weight: 400;
+    color: var(--ink);
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="bm-header">
+  <!-- Logo SVG (peonía, estilo line art fiel a la marca) -->
+  <svg class="bm-logo-svg" viewBox="0 0 80 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Pétalo exterior inferior -->
+    <path d="M25 52 Q18 46 22 38 Q26 30 35 32" stroke="#2C2A26" stroke-width="0.9" fill="none"/>
+    <path d="M55 52 Q62 46 58 38 Q54 30 45 32" stroke="#2C2A26" stroke-width="0.9" fill="none"/>
+    <!-- Pétalos medios -->
+    <path d="M22 42 Q20 34 28 30 Q36 26 40 28" stroke="#2C2A26" stroke-width="0.8" fill="none"/>
+    <path d="M58 42 Q60 34 52 30 Q44 26 40 28" stroke="#2C2A26" stroke-width="0.8" fill="none"/>
+    <!-- Pétalos superiores -->
+    <path d="M28 30 Q26 20 32 16 Q38 12 40 14" stroke="#2C2A26" stroke-width="0.75" fill="none"/>
+    <path d="M52 30 Q54 20 48 16 Q42 12 40 14" stroke="#2C2A26" stroke-width="0.75" fill="none"/>
+    <!-- Centro flor -->
+    <path d="M30 34 Q34 26 40 24 Q46 26 50 34 Q52 42 48 50 Q44 56 40 58 Q36 56 32 50 Q28 42 30 34Z" stroke="#2C2A26" stroke-width="0.85" fill="none"/>
+    <!-- Capa interna -->
+    <path d="M33 36 Q36 30 40 29 Q44 30 47 36 Q49 42 46 48 Q43 52 40 53 Q37 52 34 48 Q31 42 33 36Z" stroke="#2C2A26" stroke-width="0.7" fill="none"/>
+    <!-- Centro pequeño -->
+    <ellipse cx="40" cy="41" rx="5" ry="4" stroke="#2C2A26" stroke-width="0.65" fill="none"/>
+    <!-- Tallo con curva característica de la marca -->
+    <path d="M40 58 L39 70 Q38 76 36 80 Q34 84 36 88 Q38 92 40 90 Q42 88 44 84 Q46 80 44 75 Q42 70 42 65" stroke="#2C2A26" stroke-width="0.9" fill="none" stroke-linecap="round"/>
+    <!-- Hoja izquierda -->
+    <path d="M37 72 Q30 68 28 72 Q26 76 33 77 Q36 77 37 75" stroke="#2C2A26" stroke-width="0.7" fill="none"/>
+    <!-- Curva decorativa firma (característica del logo) -->
+    <path d="M40 90 Q38 96 36 100 Q34 104 38 106 Q42 108 44 104 Q46 100 44 96 Q42 92 40 90Z" stroke="#2C2A26" stroke-width="0.8" fill="none" stroke-linecap="round"/>
+  </svg>
+
+  <div class="bm-eyebrow">
+    <span></span>
+    <p>Florería</p>
+    <span></span>
+  </div>
+  <h1 class="bm-brand-title">Blooming Muse</h1>
+  <p class="bm-tagline">Hecho con intención.</p>
+
+  <div class="bm-palette-row">
+    <div class="bm-dot" style="background:#F0EDE6;" title="Crema base"></div>
+    <div class="bm-dot" style="background:#E8D5D0;" title="Blush"></div>
+    <div class="bm-dot" style="background:#C4A4A0;" title="Rosa antiguo"></div>
+    <div class="bm-dot" style="background:#9B6E6A;" title="Rosa profundo"></div>
+    <div class="bm-dot" style="background:#8A9B82;" title="Salvia"></div>
+    <div class="bm-dot" style="background:#B8A89A;" title="Polvo"></div>
+    <div class="bm-dot" style="background:#2C2A26;" title="Tinta"></div>
+  </div>
+</header>
+
+<!-- ===== NAVEGACIÓN ===== -->
+<nav class="bm-nav no-print">
+  <button class="active" onclick="showTab('arreglos', this)">Arreglos</button>
+  <button onclick="showTab('flores', this)">Flores de temporada</button>
+  <button onclick="showTab('extras', this)">Extras</button>
+  <button onclick="showTab('paleta', this)">Paleta de marca</button>
+</nav>
+
+<!-- ============================================
+     SECCIÓN 1: ARREGLOS
+============================================ -->
+<section id="tab-arreglos" class="bm-section active">
+  <div class="section-header">
+    <h2 class="section-title">Arreglos sobre pedido</h2>
+    <div class="section-divider"></div>
+    <p class="section-sub">Cada pieza, diseñada para quien la recibe</p>
+  </div>
+
+  <p class="edit-hint no-print">✦ <strong>Archivo editable:</strong> haz clic en cualquier campo de precio para editarlo directamente · Los cambios se guardan al imprimir o exportar</p>
+
+  <div class="sizes-grid">
+
+    <!-- === CHICO === -->
+    <div class="size-card">
+      <div class="card-visual" style="background:#F5F0EE;">
+        <span class="card-size-badge">01</span>
+        <svg viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bouquet chico: gerbera + gypsophila -->
+          <circle cx="50" cy="38" r="18" stroke="#2C2A26" stroke-width="0.85" fill="none"/>
+          <circle cx="50" cy="38" r="10" stroke="#2C2A26" stroke-width="0.7" fill="none"/>
+          <circle cx="50" cy="38" r="5" stroke="#2C2A26" stroke-width="0.65" fill="#FAEAEA"/>
+          <circle cx="50" cy="38" r="2.5" fill="#C4A4A0"/>
+          <!-- Pequeñas flores gypsophila -->
+          <circle cx="34" cy="30" r="3" stroke="#2C2A26" stroke-width="0.5" fill="white"/>
+          <circle cx="66" cy="30" r="3" stroke="#2C2A26" stroke-width="0.5" fill="white"/>
+          <circle cx="30" cy="42" r="2.5" stroke="#2C2A26" stroke-width="0.5" fill="white"/>
+          <circle cx="70" cy="42" r="2.5" stroke="#2C2A26" stroke-width="0.5" fill="white"/>
+          <!-- Tallo -->
+          <path d="M50 56 L49 88 Q48 94 47 98" stroke="#2C2A26" stroke-width="0.85" fill="none" stroke-linecap="round"/>
+          <!-- Hoja -->
+          <path d="M47 72 Q40 68 39 73 Q38 78 45 77" stroke="#8A9B82" stroke-width="0.75" fill="none"/>
+          <!-- Envoltura cónica -->
+          <path d="M38 95 Q44 102 50 100 Q56 102 62 95 L58 118 Q54 124 50 122 Q46 124 42 118 Z" stroke="#2C2A26" stroke-width="0.8" fill="rgba(232,226,217,0.5)"/>
+          <!-- Moño -->
+          <path d="M44 116 Q50 112 56 116" stroke="#C4A4A0" stroke-width="1" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <p class="price-label" style="margin-bottom:0.3rem;">Tamaño 01</p>
+        <h3 class="card-name">Arreglo Chico</h3>
+        <p class="card-desc">Bouquet íntimo para un gesto espontáneo y sincero. 3–5 flores de temporada con follaje complementario, envuelto en papel de marca con lazo.</p>
+        <div class="card-flowers">
+          <span class="flower-tag">3–5 flores</span>
+          <span class="flower-tag green">gypsophila</span>
+          <span class="flower-tag green">eucalipto</span>
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <span class="price-label">Precio base</span>
+            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio base arreglo chico">
+          </div>
+          <div class="price-row">
+            <span class="price-label">Con jarrón</span>
+            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio con jarrón arreglo chico">
+          </div>
+          <p class="jarron-note">✦ Incluye tarjeta personalizada</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- === MEDIANO === -->
+    <div class="size-card">
+      <div class="card-visual" style="background:#EEEEE8;">
+        <span class="card-size-badge">02</span>
+        <svg viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bouquet mediano: rosas + alstroemeria -->
+          <!-- Rosa izquierda -->
+          <path d="M38 26 Q33 18 36 24 Q30 18 35 26 Q28 22 34 30 Q26 30 34 34 Q30 40 36 38 Q36 46 40 40 Q42 46 44 40 Q44 48 46 42 Q52 44 48 38 Q56 34 48 30 Q54 22 46 26 Q48 18 42 24 Q44 18 38 26Z" stroke="#2C2A26" stroke-width="0.75" fill="#FAEAEA"/>
+          <circle cx="42" cy="32" r="4" fill="#C4A4A0" stroke="#2C2A26" stroke-width="0.5"/>
+          <!-- Rosa derecha (más pequeña) -->
+          <path d="M58 34 Q54 28 56 32 Q52 28 55 34 Q50 30 54 36 Q50 38 54 40 Q52 44 56 42 Q56 48 58 44 Q60 48 62 44 Q62 50 64 44 Q68 46 66 40 Q70 38 66 36 Q70 30 62 32 Q64 28 60 32 Q62 28 58 34Z" stroke="#2C2A26" stroke-width="0.7" fill="#F5D5D5"/>
+          <circle cx="60" cy="38" r="3" fill="#B8A0A0" stroke="#2C2A26" stroke-width="0.45"/>
+          <!-- Gypsophila fondo -->
+          <circle cx="28" cy="36" r="2.5" stroke="#2C2A26" stroke-width="0.45" fill="white"/>
+          <circle cx="74" cy="36" r="2" stroke="#2C2A26" stroke-width="0.45" fill="white"/>
+          <circle cx="34" cy="22" r="2" stroke="#2C2A26" stroke-width="0.45" fill="white"/>
+          <circle cx="66" cy="26" r="2.5" stroke="#2C2A26" stroke-width="0.45" fill="white"/>
+          <!-- Tallos -->
+          <path d="M42 50 L41 85 Q40 90 40 96" stroke="#2C2A26" stroke-width="0.85" fill="none" stroke-linecap="round"/>
+          <path d="M60 50 L59 82 Q58 88 58 96" stroke="#2C2A26" stroke-width="0.75" fill="none" stroke-linecap="round"/>
+          <!-- Hojas -->
+          <path d="M40 68 Q32 64 31 70 Q30 75 38 74" stroke="#8A9B82" stroke-width="0.7" fill="none"/>
+          <path d="M58 70 Q65 66 66 72 Q67 76 60 75" stroke="#8A9B82" stroke-width="0.7" fill="none"/>
+          <!-- Envoltura -->
+          <path d="M32 94 Q40 102 50 100 Q60 102 68 94 L64 120 Q58 128 50 126 Q42 128 36 120 Z" stroke="#2C2A26" stroke-width="0.8" fill="rgba(232,226,217,0.5)"/>
+          <path d="M40 122 Q50 118 60 122" stroke="#C4A4A0" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <p class="price-label" style="margin-bottom:0.3rem;">Tamaño 02</p>
+        <h3 class="card-name">Arreglo Mediano</h3>
+        <p class="card-desc">Composición balanceada con variedad de texturas y color. 6–9 flores principales con follaje verde, gypsophila y papel de seda de marca.</p>
+        <div class="card-flowers">
+          <span class="flower-tag">6–9 flores</span>
+          <span class="flower-tag">rosas</span>
+          <span class="flower-tag">alstroemeria</span>
+          <span class="flower-tag green">gypsophila</span>
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <span class="price-label">Precio base</span>
+            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio base arreglo mediano">
+          </div>
+          <div class="price-row">
+            <span class="price-label">Con jarrón</span>
+            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio con jarrón arreglo mediano">
+          </div>
+          <p class="jarron-note">✦ Incluye tarjeta personalizada</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- === GRANDE === -->
+    <div class="size-card">
+      <div class="card-visual" style="background:#EEE8F0;">
+        <span class="card-size-badge">03</span>
+        <svg viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Bouquet grande: peonía grande + lirios + amaranto -->
+          <!-- Peonía principal -->
+          <path d="M40 12 Q35 4 38 10 Q32 6 37 14 Q28 10 35 18 Q26 18 34 24 Q26 28 34 30 Q28 36 36 34 Q34 42 40 38 Q42 46 44 38 Q50 44 50 34 Q58 38 56 30 Q64 28 56 24 Q64 18 55 18 Q62 10 53 14 Q58 6 52 10 Q54 4 48 12" stroke="#2C2A26" stroke-width="0.8" fill="none"/>
+          <path d="M34 20 Q36 14 40 12 Q44 14 46 20 Q48 26 46 32 Q44 38 40 40 Q36 38 34 32 Q32 26 34 20Z" stroke="#2C2A26" stroke-width="0.75" fill="rgba(232,208,210,0.4)"/>
+          <ellipse cx="40" cy="26" rx="6" ry="5" stroke="#2C2A26" stroke-width="0.6" fill="none"/>
+          <circle cx="40" cy="26" r="3" fill="#9B6E6A"/>
+          <!-- Lirio izquierda -->
+          <path d="M24 30 Q20 22 26 20 Q30 18 32 24 Q34 30 30 34" stroke="#2C2A26" stroke-width="0.7" fill="rgba(232,226,240,0.4)"/>
+          <path d="M20 28 Q16 22 22 20 Q26 18 28 24" stroke="#2C2A26" stroke-width="0.6" fill="none"/>
+          <!-- Amaranto derecha -->
+          <path d="M58 18 L58 50" stroke="#2C2A26" stroke-width="0.7"/>
+          <circle cx="58" cy="22" r="2.5" fill="#C4A4A0"/>
+          <circle cx="56" cy="28" r="2" fill="#B8A0B0"/>
+          <circle cx="60" cy="24" r="1.8" fill="#C4A4A0"/>
+          <circle cx="57" cy="33" r="2.2" fill="#B8A0B0"/>
+          <circle cx="59" cy="38" r="2" fill="#C4A4A0"/>
+          <circle cx="58" cy="44" r="1.8" fill="#B090A8"/>
+          <!-- Gypsophila -->
+          <circle cx="28" cy="16" r="2" stroke="#2C2A26" stroke-width="0.4" fill="white"/>
+          <circle cx="68" cy="20" r="2.5" stroke="#2C2A26" stroke-width="0.4" fill="white"/>
+          <circle cx="72" cy="30" r="2" stroke="#2C2A26" stroke-width="0.4" fill="white"/>
+          <!-- Tallos -->
+          <path d="M38 50 L37 82 Q36 88 36 96" stroke="#2C2A26" stroke-width="0.85" fill="none" stroke-linecap="round"/>
+          <path d="M42 52 L43 84 Q44 90 44 96" stroke="#2C2A26" stroke-width="0.75" fill="none" stroke-linecap="round"/>
+          <path d="M26 40 L28 80 Q29 88 30 96" stroke="#2C2A26" stroke-width="0.65" fill="none" stroke-linecap="round"/>
+          <!-- Hojas -->
+          <path d="M36 65 Q27 60 26 67 Q25 73 34 72" stroke="#8A9B82" stroke-width="0.7" fill="none"/>
+          <path d="M44 68 Q52 63 53 70 Q54 75 46 74" stroke="#8A9B82" stroke-width="0.7" fill="none"/>
+          <path d="M37 80 Q30 76 29 82 Q28 87 36 86" stroke="#8A9B82" stroke-width="0.6" fill="none"/>
+          <!-- Envoltura grande -->
+          <path d="M22 94 Q34 104 50 102 Q66 104 78 94 L72 124 Q64 134 50 132 Q36 134 28 124 Z" stroke="#2C2A26" stroke-width="0.85" fill="rgba(232,226,217,0.45)"/>
+          <path d="M36 128 Q50 122 64 128" stroke="#C4A4A0" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+          <!-- Detalle lazo -->
+          <path d="M44 126 Q50 120 56 126 Q62 122 56 128" stroke="#9B6E6A" stroke-width="0.8" fill="none"/>
+        </svg>
+      </div>
+      <div class="card-body">
+        <p class="price-label" style="margin-bottom:0.3rem;">Tamaño 03</p>
+        <h3 class="card-name">Arreglo Grande</h3>
+        <p class="card-desc">Pieza de declaración con diseño completamente personalizable. 10–15+ flores en capas con follaje dramático, amaranto, lirios u orquídeas.</p>
+        <div class="card-flowers">
+          <span class="flower-tag">10–15+ flores</span>
+          <span class="flower-tag">peonía</span>
+          <span class="flower-tag">lirio</span>
+          <span class="flower-tag">amaranto</span>
+          <span class="flower-tag green">eucalipto</span>
+        </div>
+        <div class="price-block">
+          <div class="price-row">
+            <span class="price-label">Precio base</span>
+            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio base arreglo grande">
+          </div>
+          <div class="price-row">
+            <span class="price-label">Con jarrón</span>
+            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio con jarrón arreglo grande">
+          </div>
+          <p class="jarron-note">✦ Incluye tarjeta personalizada + mensaje impreso</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NOTA JARRÓN -->
+  <div class="jarron-section">
+    <div>
+      <h4 class="jarron-title">Complemento: Presentación en jarrón</h4>
+      <p class="jarron-desc">Todos los arreglos se entregan envueltos en papel de marca. Si deseas presentar el arreglo en jarrón de vidrio, este lleva un costo adicional cotizado según tamaño. Disponibles en tres formatos: cilíndrico corto, cilíndrico alto y tipo bola.</p>
+    </div>
+    <div class="jarron-price-block">
+      <span class="jarron-price-label">Costo extra jarrón</span>
+      <input class="price-input" type="text" placeholder="$  —" style="text-align:center; font-size:22px;" aria-label="Costo extra jarrón">
+    </div>
+  </div>
+</section>
+
+<!-- ============================================
+     SECCIÓN 2: FLORES DE TEMPORADA
+============================================ -->
+<section id="tab-flores" class="bm-section">
+  <div class="section-header">
+    <h2 class="section-title">Flores de temporada</h2>
+    <div class="section-divider"></div>
+    <p class="section-sub">Selección disponible para personalizar tu pedido</p>
+  </div>
+
+  <div class="flowers-grid">
+
+    <!-- ROSA -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#FBF5F4;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <path d="M40 20 Q36 14 38 20 Q32 16 37 24 Q28 20 35 28 Q26 28 33 34 Q28 40 36 38 Q34 46 40 42 Q42 48 44 42 Q50 46 50 38 Q58 40 54 34 Q62 28 54 28 Q60 20 52 24 Q56 16 50 20 Q52 14 46 20 Q48 14 40 20Z" stroke="#2C2A26" stroke-width="0.8" fill="#FAEAEA"/>
+          <circle cx="40" cy="32" r="5" fill="#C4A4A0" stroke="#2C2A26" stroke-width="0.6"/>
+          <circle cx="40" cy="32" r="2.5" fill="#9B6E6A"/>
+          <line x1="40" y1="46" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
+          <path d="M33 58 Q36 53 38 60" stroke="#8A9B82" stroke-width="0.7" fill="#D4EAD0"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Rosa</p>
+        <p class="flower-season">Todo el año</p>
+        <p class="flower-note">El clásico atemporal, disponible en rojo, rosa, blanco y durazno</p>
+      </div>
+    </div>
+
+    <!-- PEONÍA -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#F9F4F4;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <path d="M40 14 Q36 8 38 14 Q32 8 36 16 Q26 12 34 20 Q22 20 32 26 Q22 30 32 32 Q24 38 34 36 Q32 44 38 40 Q38 48 40 42 Q42 48 42 40 Q48 44 46 36 Q56 38 48 32 Q58 30 48 26 Q58 20 46 20 Q54 12 44 16 Q48 8 40 14Z" stroke="#2C2A26" stroke-width="0.8" fill="#F5E0DE"/>
+          <path d="M34 22 Q36 16 40 14 Q44 16 46 22 Q48 28 46 34 Q44 38 40 40 Q36 38 34 34 Q32 28 34 22Z" stroke="#2C2A26" stroke-width="0.7" fill="rgba(232,200,200,0.5)"/>
+          <circle cx="40" cy="28" r="5" stroke="#2C2A26" stroke-width="0.6" fill="none"/>
+          <circle cx="40" cy="28" r="2.5" fill="#C4A4A0"/>
+          <line x1="40" y1="46" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Peonía</p>
+        <p class="flower-season">Primavera — Verano</p>
+        <p class="flower-note">La flor emblema de la marca, voluptuosa y romántica</p>
+      </div>
+    </div>
+
+    <!-- HORTENCIA -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#F4F8F5;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <circle cx="40" cy="34" r="20" stroke="#2C2A26" stroke-width="0.75" fill="none"/>
+          <circle cx="32" cy="26" r="6" stroke="#2C2A26" stroke-width="0.6" fill="#E8F0E5"/>
+          <circle cx="48" cy="26" r="6" stroke="#2C2A26" stroke-width="0.6" fill="#D8EAD8"/>
+          <circle cx="32" cy="38" r="6" stroke="#2C2A26" stroke-width="0.6" fill="#D8EAD8"/>
+          <circle cx="48" cy="38" r="6" stroke="#2C2A26" stroke-width="0.6" fill="#E8F0E5"/>
+          <circle cx="40" cy="30" r="5" stroke="#2C2A26" stroke-width="0.6" fill="#E0EAE0"/>
+          <circle cx="40" cy="40" r="5" stroke="#2C2A26" stroke-width="0.6" fill="#D8EAD8"/>
+          <line x1="40" y1="54" x2="38" y2="70" stroke="#2C2A26" stroke-width="0.75"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Hortencia</p>
+        <p class="flower-season">Primavera — Verano</p>
+        <p class="flower-note">Volumen suave y textura esponjosa, ideal como base</p>
+      </div>
+    </div>
+
+    <!-- GERBERA -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#FDF8F0;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <path d="M40 14 L42 26 L53 20 L46 30 L58 30 L48 36 L56 44 L44 40 L44 52 L40 42 L36 52 L36 40 L24 44 L32 36 L22 30 L34 30 L27 20 L38 26 Z" stroke="#2C2A26" stroke-width="0.8" fill="#FDE8C8"/>
+          <circle cx="40" cy="34" r="8" stroke="#2C2A26" stroke-width="0.7" fill="#F5C080"/>
+          <circle cx="40" cy="34" r="4" fill="#E8A050" stroke="#2C2A26" stroke-width="0.5"/>
+          <line x1="40" y1="50" x2="38" y2="70" stroke="#2C2A26" stroke-width="0.75"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Gerbera</p>
+        <p class="flower-season">Todo el año</p>
+        <p class="flower-note">Alegría radiante, disponible en todos los tonos</p>
+      </div>
+    </div>
+
+    <!-- LIRIO -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#F5F5FA;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <ellipse cx="40" cy="22" rx="10" ry="14" stroke="#2C2A26" stroke-width="0.8" fill="#E8E8F5"/>
+          <ellipse cx="28" cy="32" rx="9" ry="13" stroke="#2C2A26" stroke-width="0.7" fill="#D8D8EE" transform="rotate(-20 28 32)"/>
+          <ellipse cx="52" cy="32" rx="9" ry="13" stroke="#2C2A26" stroke-width="0.7" fill="#D8D8EE" transform="rotate(20 52 32)"/>
+          <circle cx="40" cy="30" r="4" fill="#7A70A8" stroke="#2C2A26" stroke-width="0.5"/>
+          <!-- Estambres -->
+          <line x1="36" y1="28" x2="33" y2="22" stroke="#2C2A26" stroke-width="0.5"/>
+          <line x1="40" y1="26" x2="40" y2="20" stroke="#2C2A26" stroke-width="0.5"/>
+          <line x1="44" y1="28" x2="47" y2="22" stroke="#2C2A26" stroke-width="0.5"/>
+          <circle cx="33" cy="22" r="1.5" fill="#C4A4A0"/>
+          <circle cx="40" cy="20" r="1.5" fill="#C4A4A0"/>
+          <circle cx="47" cy="22" r="1.5" fill="#C4A4A0"/>
+          <line x1="40" y1="44" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Lirio</p>
+        <p class="flower-season">Todo el año</p>
+        <p class="flower-note">Presencia escultórica y aroma que llena el espacio</p>
+      </div>
+    </div>
+
+    <!-- LISIANTHUS -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#F9F4FC;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <ellipse cx="36" cy="22" rx="8" ry="12" stroke="#2C2A26" stroke-width="0.75" fill="#EDD9F5" transform="rotate(-15 36 22)"/>
+          <ellipse cx="48" cy="22" rx="8" ry="12" stroke="#2C2A26" stroke-width="0.75" fill="#EDD9F5" transform="rotate(15 48 22)"/>
+          <ellipse cx="40" cy="18" rx="9" ry="13" stroke="#2C2A26" stroke-width="0.75" fill="#E4CAF0"/>
+          <ellipse cx="30" cy="28" rx="7" ry="11" stroke="#2C2A26" stroke-width="0.7" fill="#DEC0EA" transform="rotate(-25 30 28)"/>
+          <ellipse cx="50" cy="28" rx="7" ry="11" stroke="#2C2A26" stroke-width="0.7" fill="#DEC0EA" transform="rotate(25 50 28)"/>
+          <circle cx="40" cy="32" r="4.5" fill="#9B7B6B" stroke="#2C2A26" stroke-width="0.5"/>
+          <line x1="40" y1="44" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Lisianthus</p>
+        <p class="flower-season">Primavera — Otoño</p>
+        <p class="flower-note">Elegancia en capas, parece seda viva</p>
+      </div>
+    </div>
+
+    <!-- ALSTROEMERIA -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#FCF8F3;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <!-- Pétalos alstroemeria (6 pétalos) -->
+          <ellipse cx="40" cy="18" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#FBE8CC"/>
+          <ellipse cx="50" cy="22" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#F8D8B0" transform="rotate(60 50 22)"/>
+          <ellipse cx="50" cy="38" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#FBE8CC" transform="rotate(120 50 38)"/>
+          <ellipse cx="40" cy="46" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#F8D8B0" transform="rotate(180 40 46)"/>
+          <ellipse cx="30" cy="38" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#FBE8CC" transform="rotate(240 30 38)"/>
+          <ellipse cx="30" cy="22" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#F8D8B0" transform="rotate(300 30 22)"/>
+          <circle cx="40" cy="32" r="5" fill="#E8A87C" stroke="#2C2A26" stroke-width="0.6"/>
+          <!-- Líneas de los pétalos -->
+          <line x1="40" y1="28" x2="40" y2="22" stroke="#C4805A" stroke-width="0.5"/>
+          <line x1="40" y1="36" x2="38" y2="40" stroke="#C4805A" stroke-width="0.5"/>
+          <line x1="40" y1="48" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Alstroemeria</p>
+        <p class="flower-season">Todo el año</p>
+        <p class="flower-note">Duradera y versátil, en tonos cálidos y fríos</p>
+      </div>
+    </div>
+
+    <!-- CLAVEL -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#FBF5F8;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <path d="M40 18 Q36 14 38 20 Q32 16 36 22 Q28 20 34 26 Q26 26 33 30 Q26 34 34 34 Q30 40 38 36 Q38 44 40 38 Q42 44 42 36 Q50 40 46 34 Q54 34 47 30 Q54 26 46 26 Q52 20 44 22 Q48 16 42 20 Q44 14 40 18Z" stroke="#2C2A26" stroke-width="0.8" fill="#F5C8D8"/>
+          <path d="M34 24 Q36 20 40 20 Q44 20 46 24 Q48 28 46 32 Q44 36 40 38 Q36 36 34 32 Q32 28 34 24Z" stroke="#2C2A26" stroke-width="0.65" fill="rgba(232,180,200,0.4)"/>
+          <circle cx="40" cy="30" r="4" fill="#D4828A" stroke="#2C2A26" stroke-width="0.5"/>
+          <line x1="40" y1="44" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
+          <path d="M33 58 Q36 53 38 59" stroke="#8A9B82" stroke-width="0.65" fill="none"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Clavel</p>
+        <p class="flower-season">Todo el año</p>
+        <p class="flower-note">Textura fruncida, larga duración y carácter propio</p>
+      </div>
+    </div>
+
+    <!-- GYPSOPHILA -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#FDFAF5;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <circle cx="32" cy="26" r="4.5" fill="white" stroke="#2C2A26" stroke-width="0.6"/><circle cx="32" cy="26" r="1.8" fill="#F5E8D0"/>
+          <circle cx="40" cy="20" r="4.5" fill="white" stroke="#2C2A26" stroke-width="0.6"/><circle cx="40" cy="20" r="1.8" fill="#F5E8D0"/>
+          <circle cx="48" cy="26" r="4.5" fill="white" stroke="#2C2A26" stroke-width="0.6"/><circle cx="48" cy="26" r="1.8" fill="#F5E8D0"/>
+          <circle cx="28" cy="34" r="4" fill="white" stroke="#2C2A26" stroke-width="0.55"/><circle cx="28" cy="34" r="1.6" fill="#F5E8D0"/>
+          <circle cx="36" cy="32" r="4.5" fill="white" stroke="#2C2A26" stroke-width="0.6"/><circle cx="36" cy="32" r="1.8" fill="#F5E8D0"/>
+          <circle cx="44" cy="32" r="4.5" fill="white" stroke="#2C2A26" stroke-width="0.6"/><circle cx="44" cy="32" r="1.8" fill="#F5E8D0"/>
+          <circle cx="52" cy="34" r="4" fill="white" stroke="#2C2A26" stroke-width="0.55"/><circle cx="52" cy="34" r="1.6" fill="#F5E8D0"/>
+          <circle cx="40" cy="40" r="4" fill="white" stroke="#2C2A26" stroke-width="0.55"/><circle cx="40" cy="40" r="1.6" fill="#F5E8D0"/>
+          <line x1="40" y1="48" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.7"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Gypsophila</p>
+        <p class="flower-season">Todo el año</p>
+        <p class="flower-note">Nube de flores diminutas, toque aéreo y romántico</p>
+      </div>
+    </div>
+
+    <!-- AMARANTO -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#F8F4FA;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <path d="M40 14 L40 60" stroke="#2C2A26" stroke-width="0.8"/>
+          <circle cx="40" cy="18" r="3.5" fill="#C4A0C0"/><circle cx="38" cy="24" r="2.8" fill="#B890B8"/><circle cx="42" cy="21" r="2.5" fill="#C4A0C0"/>
+          <circle cx="37" cy="30" r="2.8" fill="#A880A8"/><circle cx="43" cy="27" r="2.5" fill="#B890B8"/>
+          <circle cx="38" cy="36" r="2.5" fill="#C4A0C0"/><circle cx="42" cy="33" r="2.8" fill="#9870A0"/>
+          <circle cx="39" cy="42" r="2.5" fill="#B890B8"/><circle cx="41" cy="39" r="2.2" fill="#A880A8"/>
+          <circle cx="40" cy="48" r="2.5" fill="#9870A0"/>
+          <path d="M34 56 Q38 60 40 58 Q42 60 46 56" stroke="#8A9B82" stroke-width="0.7" fill="#D4EAD0"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Amaranto</p>
+        <p class="flower-season">Verano — Otoño</p>
+        <p class="flower-note">Caída dramática y tono profundo, efecto editorial</p>
+      </div>
+    </div>
+
+    <!-- EUCALIPTO -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#F4F8F4;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <path d="M40 14 Q38 22 36 30 Q34 38 36 46 Q38 54 40 60" stroke="#2C2A26" stroke-width="0.8" fill="none"/>
+          <ellipse cx="32" cy="24" rx="8" ry="5" stroke="#8A9B82" stroke-width="0.75" fill="#C8DACC" transform="rotate(-30 32 24)"/>
+          <ellipse cx="48" cy="22" rx="8" ry="5" stroke="#8A9B82" stroke-width="0.75" fill="#B8D0BE" transform="rotate(30 48 22)"/>
+          <ellipse cx="30" cy="34" rx="8" ry="5" stroke="#8A9B82" stroke-width="0.75" fill="#C8DACC" transform="rotate(-25 30 34)"/>
+          <ellipse cx="50" cy="32" rx="8" ry="5" stroke="#8A9B82" stroke-width="0.75" fill="#B8D0BE" transform="rotate(25 50 32)"/>
+          <ellipse cx="32" cy="44" rx="7" ry="5" stroke="#8A9B82" stroke-width="0.7" fill="#C8DACC" transform="rotate(-20 32 44)"/>
+          <ellipse cx="48" cy="42" rx="7" ry="5" stroke="#8A9B82" stroke-width="0.7" fill="#B8D0BE" transform="rotate(20 48 42)"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Eucalipto</p>
+        <p class="flower-season">Todo el año</p>
+        <p class="flower-note">Follaje base con aroma fresco, siempre presente</p>
+      </div>
+    </div>
+
+    <!-- ORQUÍDEA -->
+    <div class="flower-card">
+      <div class="flower-visual" style="background:#F6FAFC;">
+        <svg viewBox="0 0 80 80" fill="none">
+          <!-- Tallo curvo -->
+          <path d="M42 68 Q50 60 56 48 Q62 36 58 26 Q54 18 50 20" stroke="#8A9B82" stroke-width="0.8" fill="none"/>
+          <!-- Flores orquídea en tallo -->
+          <path d="M52 42 Q46 36 48 42 Q44 38 44 44 Q46 50 52 48 Q58 46 58 40 Q56 34 52 42Z" stroke="#2C2A26" stroke-width="0.7" fill="#D0E8F0"/>
+          <path d="M56 28 Q50 22 52 28 Q48 24 48 30 Q50 36 56 34 Q62 32 62 26 Q60 20 56 28Z" stroke="#2C2A26" stroke-width="0.7" fill="#C8E0EC"/>
+          <!-- Botón -->
+          <circle cx="50" cy="20" r="3" stroke="#2C2A26" stroke-width="0.6" fill="#E0EEF5"/>
+          <circle cx="46" cy="16" r="2.5" stroke="#2C2A26" stroke-width="0.55" fill="#EAF3F8"/>
+          <!-- Centro flores -->
+          <circle cx="52" cy="44" r="2" fill="#9B7B6B"/>
+          <circle cx="56" cy="30" r="2" fill="#9B7B6B"/>
+          <!-- Hoja base -->
+          <path d="M40 68 Q34 62 34 68 Q34 72 38 72 Q42 72 42 68Z" stroke="#8A9B82" stroke-width="0.7" fill="#C8DACC"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Orquídea</p>
+        <p class="flower-season">Todo el año</p>
+        <p class="flower-note">Elegancia pura, presencia escultórica en arreglos grandes</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================
+     SECCIÓN 3: EXTRAS & COMPLEMENTOS
+============================================ -->
+<section id="tab-extras" class="bm-section">
+  <div class="section-header">
+    <h2 class="section-title">Extras & Complementos</h2>
+    <div class="section-divider"></div>
+    <p class="section-sub">Detalles que elevan cada pieza</p>
+  </div>
+
+  <div class="extras-grid">
+
+    <div class="extra-card">
+      <div class="extra-icon">
+        <svg viewBox="0 0 26 26" fill="none">
+          <path d="M4 20 Q13 8 22 20" stroke="#2C2A26" stroke-width="0.9" fill="none"/>
+          <path d="M7 18 Q13 12 19 18" stroke="#8A9B82" stroke-width="0.8" fill="rgba(138,155,130,0.2)"/>
+          <rect x="6" y="19" width="14" height="5" rx="1" stroke="#2C2A26" stroke-width="0.75" fill="rgba(232,226,217,0.5)"/>
+        </svg>
+      </div>
+      <div>
+        <h4 class="extra-title">Jarrón de vidrio</h4>
+        <p class="extra-desc">Disponible en tres formatos: cilíndrico corto, cilíndrico alto y tipo bola. Eleva cualquier arreglo para regalo o decoración permanente.</p>
+        <div class="extra-price-row">
+          <span class="extra-price-label">Costo adicional</span>
+          <input class="price-input" type="text" placeholder="$  —" style="font-size:16px;" aria-label="Precio jarrón">
+        </div>
+      </div>
+    </div>
+
+    <div class="extra-card">
+      <div class="extra-icon">
+        <svg viewBox="0 0 26 26" fill="none">
+          <rect x="4" y="6" width="18" height="14" rx="1" stroke="#2C2A26" stroke-width="0.75" fill="rgba(232,213,208,0.3)"/>
+          <line x1="4" y1="10" x2="22" y2="10" stroke="#2C2A26" stroke-width="0.5"/>
+          <line x1="8" y1="14" x2="18" y2="14" stroke="#8A9B82" stroke-width="0.5"/>
+          <line x1="8" y1="17" x2="15" y2="17" stroke="#8A9B82" stroke-width="0.5"/>
+        </svg>
+      </div>
+      <div>
+        <h4 class="extra-title">Tarjeta de mensaje</h4>
+        <p class="extra-desc">Tarjeta kraft con logo impreso y espacio para mensaje manuscrito. Incluida en todos los pedidos. Versión premium con sobre disponible.</p>
+        <div class="extra-price-row">
+          <span class="extra-price-label">Incluida · Premium</span>
+          <input class="price-input" type="text" placeholder="$  —" style="font-size:16px;" aria-label="Precio tarjeta premium">
+        </div>
+      </div>
+    </div>
+
+    <div class="extra-card">
+      <div class="extra-icon">
+        <svg viewBox="0 0 26 26" fill="none">
+          <path d="M5 20 Q8 14 13 14 Q18 14 21 20" stroke="#2C2A26" stroke-width="0.75" fill="none"/>
+          <path d="M8 16 Q10 10 13 8 Q16 10 18 16" stroke="#C4A4A0" stroke-width="0.7" fill="none"/>
+          <path d="M10 14 Q13 5 13 14" stroke="#9B6E6A" stroke-width="0.6" fill="none"/>
+          <rect x="4" y="20" width="18" height="4" rx="0.5" stroke="#2C2A26" stroke-width="0.7" fill="rgba(232,226,217,0.4)"/>
+        </svg>
+      </div>
+      <div>
+        <h4 class="extra-title">Papel de seda personalizado</h4>
+        <p class="extra-desc">Papel con estampado de marca en tonos crema y polvo. Envuelve cada bouquet con la firma visual de Blooming Muse.</p>
+        <div class="extra-price-row">
+          <span class="extra-price-label">Incluido en pedido</span>
+          <span style="font-family: var(--font-display); font-style:italic; font-size:14px; color: var(--sage);">Sin costo extra</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="extra-card">
+      <div class="extra-icon">
+        <svg viewBox="0 0 26 26" fill="none">
+          <path d="M9 6 Q13 2 17 6 L20 12 Q22 16 20 20 Q18 22 13 22 Q8 22 6 20 Q4 16 6 12 Z" stroke="#2C2A26" stroke-width="0.75" fill="rgba(196,164,160,0.2)"/>
+          <path d="M10 8 Q13 5 16 8 L18 12 Q19 15 18 18 Q16 20 13 20 Q10 20 8 18 Q7 15 8 12Z" stroke="#C4A4A0" stroke-width="0.6" fill="rgba(196,164,160,0.1)"/>
+        </svg>
+      </div>
+      <div>
+        <h4 class="extra-title">Agua con floral preservante</h4>
+        <p class="extra-desc">Para arreglos en jarrón: incluye agua tratada con nutriente floral que extiende la vida del arreglo hasta 2 semanas.</p>
+        <div class="extra-price-row">
+          <span class="extra-price-label">Incluido con jarrón</span>
+          <span style="font-family: var(--font-display); font-style:italic; font-size:14px; color: var(--sage);">Sin costo extra</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="extra-card">
+      <div class="extra-icon">
+        <svg viewBox="0 0 26 26" fill="none">
+          <circle cx="13" cy="13" r="8" stroke="#2C2A26" stroke-width="0.75" fill="none"/>
+          <path d="M9 13 Q11 9 13 8 Q15 9 17 13 Q15 17 13 18 Q11 17 9 13Z" stroke="#B8A89A" stroke-width="0.6" fill="rgba(184,168,154,0.2)"/>
+          <line x1="13" y1="5" x2="13" y2="3" stroke="#2C2A26" stroke-width="0.6"/>
+          <line x1="13" y1="21" x2="13" y2="23" stroke="#2C2A26" stroke-width="0.6"/>
+          <line x1="5" y1="13" x2="3" y2="13" stroke="#2C2A26" stroke-width="0.6"/>
+          <line x1="21" y1="13" x2="23" y2="13" stroke="#2C2A26" stroke-width="0.6"/>
+        </svg>
+      </div>
+      <div>
+        <h4 class="extra-title">Entrega a domicilio</h4>
+        <p class="extra-desc">Servicio de entrega en zona local con horario acordado. Disponible en fechas especiales con agendamiento previo mínimo 24 hrs.</p>
+        <div class="extra-price-row">
+          <span class="extra-price-label">Costo de envío</span>
+          <input class="price-input" type="text" placeholder="$  —" style="font-size:16px;" aria-label="Precio entrega">
+        </div>
+      </div>
+    </div>
+
+    <div class="extra-card">
+      <div class="extra-icon">
+        <svg viewBox="0 0 26 26" fill="none">
+          <path d="M13 4 Q16 8 20 10 Q20 18 13 22 Q6 18 6 10 Q10 8 13 4Z" stroke="#2C2A26" stroke-width="0.75" fill="rgba(138,155,130,0.15)"/>
+          <path d="M13 8 Q15 10 17 12 Q17 17 13 19 Q9 17 9 12 Q11 10 13 8Z" stroke="#8A9B82" stroke-width="0.6" fill="rgba(138,155,130,0.1)"/>
+          <line x1="13" y1="4" x2="13" y2="2" stroke="#2C2A26" stroke-width="0.6"/>
+        </svg>
+      </div>
+      <div>
+        <h4 class="extra-title">Diseño completamente personalizado</h4>
+        <p class="extra-desc">Paleta de colores, flores específicas, mensaje temático o concepto especial. Pedido con al menos 48 hrs de anticipación.</p>
+        <div class="extra-price-row">
+          <span class="extra-price-label">Sin costo adicional</span>
+          <span style="font-family: var(--font-display); font-style:italic; font-size:14px; color: var(--sage);">Según disponibilidad</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================
+     SECCIÓN 4: PALETA DE MARCA
+============================================ -->
+<section id="tab-paleta" class="bm-section">
+  <div class="section-header">
+    <h2 class="section-title">Paleta de marca</h2>
+    <div class="section-divider"></div>
+    <p class="section-sub">Sistema de color e identidad visual</p>
+  </div>
+
+  <div class="palette-grid">
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#F0EDE6;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">Crema base</p>
+        <p class="swatch-hex">#F0EDE6</p>
+        <p class="swatch-role">Fondo principal</p>
+      </div>
+    </div>
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#E8E2D9;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">Pergamino</p>
+        <p class="swatch-hex">#E8E2D9</p>
+        <p class="swatch-role">Fondos secundarios</p>
+      </div>
+    </div>
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#E8D5D0;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">Blush</p>
+        <p class="swatch-hex">#E8D5D0</p>
+        <p class="swatch-role">Acentos suaves</p>
+      </div>
+    </div>
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#C4A4A0;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">Rosa antiguo</p>
+        <p class="swatch-hex">#C4A4A0</p>
+        <p class="swatch-role">Color principal de marca</p>
+      </div>
+    </div>
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#9B6E6A;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">Rosa profundo</p>
+        <p class="swatch-hex">#9B6E6A</p>
+        <p class="swatch-role">Énfasis y bordes</p>
+      </div>
+    </div>
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#8A9B82;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">Salvia</p>
+        <p class="swatch-hex">#8A9B82</p>
+        <p class="swatch-role">Color vegetal / follaje</p>
+      </div>
+    </div>
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#B8A89A;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">Polvo</p>
+        <p class="swatch-hex">#B8A89A</p>
+        <p class="swatch-role">Textos secundarios</p>
+      </div>
+    </div>
+    <div class="swatch-card">
+      <div class="swatch-block" style="background:#2C2A26;"></div>
+      <div class="swatch-info">
+        <p class="swatch-name">Tinta</p>
+        <p class="swatch-hex">#2C2A26</p>
+        <p class="swatch-role">Texto principal / líneas</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="typography-section">
+    <p class="typo-title">Sistema tipográfico</p>
+    <div class="typo-row">
+      <span class="typo-label">Display</span>
+      <span style="font-family: var(--font-display); font-size: 28px; font-weight: 300; letter-spacing: 0.06em;">Cormorant Garamond Light</span>
+    </div>
+    <div class="typo-row">
+      <span class="typo-label">Display itálica</span>
+      <span style="font-family: var(--font-display); font-size: 24px; font-style: italic; font-weight: 300; letter-spacing: 0.04em;">Hecho con intención.</span>
+    </div>
+    <div class="typo-row">
+      <span class="typo-label">Cuerpo</span>
+      <span style="font-family: var(--font-body); font-size: 14px; font-weight: 300; letter-spacing: 0.02em; color: var(--ink-light);">Jost Light — texto de catálogo y descripciones</span>
+    </div>
+    <div class="typo-row">
+      <span class="typo-label">Etiquetas</span>
+      <span style="font-family: var(--font-body); font-size: 10px; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);">Jost Light — mayúsculas espaciadas</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="bm-footer">
+  <p class="footer-logo">Blooming Muse</p>
+  <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:0.75rem;">
+    <span style="height:0.5px; width:36px; background: var(--parchment); display:block;"></span>
+    <p class="section-sub" style="margin:0;">Florería</p>
+    <span style="height:0.5px; width:36px; background: var(--parchment); display:block;"></span>
+  </div>
+  <p class="footer-tagline">Hecho con intención.</p>
+  <p class="footer-links">@blooming.muse · Pedidos por mensaje directo · Monclova, Coahuila</p>
+</footer>
+
+<!-- ===== TOOLBAR EDICIÓN ===== -->
+<div class="edit-toolbar no-print">
+  <button class="toolbar-btn" onclick="window.print()">↓ Imprimir / Guardar PDF</button>
+  <button class="toolbar-btn secondary" onclick="clearPrices()">Limpiar precios</button>
+</div>
+
+<script>
+  // === NAVEGACIÓN ENTRE SECCIONES ===
+  function showTab(id, btn) {
+    document.querySelectorAll('.bm-section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.bm-nav button').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    if (btn) btn.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // === LIMPIAR PRECIOS ===
+  function clearPrices() {
+    if (confirm('¿Limpiar todos los precios ingresados?')) {
+      document.querySelectorAll('.price-input').forEach(i => i.value = '');
+    }
+  }
+
+  // === GUARDAR PRECIOS EN localStorage ===
+  function savePrices() {
+    const inputs = document.querySelectorAll('.price-input');
+    const data = {};
+    inputs.forEach((input, idx) => {
+      data['price_' + idx] = input.value;
+    });
+    try { localStorage.setItem('bm_prices', JSON.stringify(data)); } catch(e) {}
+  }
+
+  function loadPrices() {
+    try {
+      const data = JSON.parse(localStorage.getItem('bm_prices') || '{}');
+      const inputs = document.querySelectorAll('.price-input');
+      inputs.forEach((input, idx) => {
+        if (data['price_' + idx]) input.value = data['price_' + idx];
+      });
+    } catch(e) {}
+  }
+
+  document.querySelectorAll('.price-input').forEach(input => {
+    input.addEventListener('change', savePrices);
+    input.addEventListener('blur', savePrices);
+  });
+
+  loadPrices();
+
+  // === ANIMACIÓN ENTRADA SECCIONES ===
+  document.querySelectorAll('.bm-section').forEach(section => {
+    section.style.animation = 'none';
+  });
+
+  const observer = new MutationObserver(mutations => {
+    mutations.forEach(mutation => {
+      if (mutation.target.classList.contains('active')) {
+        mutation.target.style.animation = 'none';
+        requestAnimationFrame(() => {
+          mutation.target.style.animation = 'fadeUp 0.4s ease both';
+        });
+      }
+    });
+  });
+
+  document.querySelectorAll('.bm-section').forEach(section => {
+    observer.observe(section, { attributes: true, attributeFilter: ['class'] });
+  });
+</script>
+
+</body>
+</html>
