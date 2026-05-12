@@ -3,781 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blooming Muse — Catálogo de Diseños</title>
+<title>Blooming Muse — Catálogo</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
 <style>
-  /* ============================================
-     BLOOMING MUSE — CATÁLOGO DE DISEÑOS
-     Archivo modificable — editar variables
-     para actualizar precios y contenido
-  ============================================ */
-
-  /* === VARIABLES DE MARCA (editar aquí) === */
-  :root {
-    --cream:      #F0EDE6;
-    --warm:       #E8E2D9;
-    --parchment:  #DDD6CC;
-    --ink:        #2C2A26;
-    --ink-light:  #5A5751;
-    --muted:      #8A8480;
-    --rose:       #C4A4A0;
-    --rose-deep:  #9B6E6A;
-    --sage:       #8A9B82;
-    --dust:       #B8A89A;
-    --blush:      #E8D5D0;
-
-    --font-display: 'Cormorant Garamond', Georgia, serif;
-    --font-body:    'Jost', sans-serif;
-  }
-
-  /* === RESET === */
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: var(--font-body);
-    font-weight: 300;
-    background: var(--cream);
-    color: var(--ink);
-    font-size: 14px;
-    line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
-  }
-
-  /* === PRINT STYLES === */
-  @media print {
-    .no-print { display: none !important; }
-    body { background: white; }
-    .page-break { page-break-before: always; }
-    .bm-section { display: block !important; opacity: 1 !important; }
-    nav.bm-nav { display: none; }
-  }
-
-  /* === HEADER === */
-  .bm-header {
-    text-align: center;
-    padding: 4rem 2rem 2.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .bm-header::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(196,164,160,0.12) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .bm-logo-svg {
-    width: 72px;
-    margin: 0 auto 1.5rem;
-    display: block;
-    opacity: 0.85;
-    animation: fadeUp 1s ease forwards;
-  }
-
-  .bm-eyebrow {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    margin-bottom: 0.6rem;
-    animation: fadeUp 1s 0.1s ease both;
-  }
-
-  .bm-eyebrow span {
-    height: 0.5px;
-    width: 44px;
-    background: var(--muted);
-    display: block;
-  }
-
-  .bm-eyebrow p {
-    font-size: 10px;
-    letter-spacing: 0.28em;
-    text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 300;
-  }
-
-  .bm-brand-title {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: clamp(38px, 6vw, 58px);
-    letter-spacing: 0.1em;
-    line-height: 1;
-    color: var(--ink);
-    margin-bottom: 0.4rem;
-    animation: fadeUp 1s 0.2s ease both;
-  }
-
-  .bm-tagline {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 16px;
-    color: var(--muted);
-    letter-spacing: 0.04em;
-    animation: fadeUp 1s 0.3s ease both;
-  }
-
-  .bm-palette-row {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    padding: 2rem 0 1rem;
-    animation: fadeUp 1s 0.4s ease both;
-  }
-
-  .bm-dot {
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    border: 0.5px solid rgba(44,42,38,0.2);
-    transition: transform 0.2s;
-    cursor: default;
-  }
-  .bm-dot:hover { transform: scale(1.3); }
-
-  /* === NAV === */
-  nav.bm-nav {
-    display: flex;
-    justify-content: center;
-    border-top: 0.5px solid rgba(44,42,38,0.15);
-    border-bottom: 0.5px solid rgba(44,42,38,0.15);
-    background: var(--cream);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-    overflow-x: auto;
-    gap: 0;
-  }
-
-  .bm-nav button {
-    font-family: var(--font-body);
-    font-weight: 300;
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    padding: 1.1rem 1.8rem;
-    background: none;
-    border: none;
-    border-bottom: 1.5px solid transparent;
-    color: var(--muted);
-    cursor: pointer;
-    transition: all 0.25s;
-    white-space: nowrap;
-  }
-
-  .bm-nav button:hover,
-  .bm-nav button.active {
-    color: var(--ink);
-    border-bottom-color: var(--ink);
-  }
-
-  /* === SECTIONS === */
-  .bm-section {
-    display: none;
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 3rem 2rem 4rem;
-    animation: fadeUp 0.5s ease both;
-  }
-  .bm-section.active { display: block; }
-
-  .section-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-
-  .section-title {
-    font-family: var(--font-display);
-    font-weight: 300;
-    font-size: 34px;
-    letter-spacing: 0.07em;
-    margin-bottom: 0.4rem;
-  }
-
-  .section-sub {
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .section-divider {
-    width: 36px;
-    height: 0.5px;
-    background: var(--parchment);
-    margin: 1rem auto;
-  }
-
-  /* ============================================
-     SECCIÓN: ARREGLOS
-  ============================================ */
-  .sizes-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 700px) {
-    .sizes-grid { grid-template-columns: 1fr; }
-  }
-
-  .size-card {
-    background: #FDFBF8;
-    border: 0.5px solid rgba(44,42,38,0.13);
-    display: flex;
-    flex-direction: column;
-    transition: transform 0.25s ease;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .size-card:hover { transform: translateY(-4px); }
-
-  .size-card::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--rose), transparent);
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-
-  .size-card:hover::after { opacity: 1; }
-
-  .card-visual {
-    background: var(--warm);
-    padding: 2.5rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 240px;
-    position: relative;
-  }
-
-  .card-visual svg {
-    width: 100%;
-    max-width: 130px;
-    height: auto;
-  }
-
-  .card-size-badge {
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    font-weight: 400;
-  }
-
-  .card-body {
-    padding: 1.5rem 1.25rem;
-    border-top: 0.5px solid rgba(44,42,38,0.08);
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .card-name {
-    font-family: var(--font-display);
-    font-size: 22px;
-    font-weight: 400;
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.03em;
-  }
-
-  .card-desc {
-    font-size: 12px;
-    color: var(--ink-light);
-    line-height: 1.75;
-    margin-bottom: 1.25rem;
-    flex: 1;
-  }
-
-  .card-flowers {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 4px;
-    margin-bottom: 1.25rem;
-  }
-
-  .flower-tag {
-    font-size: 9px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    background: var(--blush);
-    color: var(--rose-deep);
-    border: 0.5px solid rgba(155,110,106,0.2);
-    border-radius: 0;
-  }
-
-  .flower-tag.green {
-    background: #EAF0E8;
-    color: #5A7050;
-    border-color: rgba(90,112,80,0.2);
-  }
-
-  .price-block {
-    border-top: 0.5px solid rgba(44,42,38,0.1);
-    padding-top: 1rem;
-    margin-top: auto;
-  }
-
-  .price-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: baseline;
-    padding: 3px 0;
-  }
-
-  .price-label {
-    font-size: 10px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .price-val {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--ink);
-  }
-
-  .price-val.tbd {
-    font-style: italic;
-    font-size: 14px;
-    color: var(--dust);
-  }
-
-  /* Campo editable de precio */
-  .price-input {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 400;
-    color: var(--ink);
-    background: transparent;
-    border: none;
-    border-bottom: 0.5px dashed var(--parchment);
-    outline: none;
-    width: 120px;
-    text-align: right;
-    cursor: text;
-    transition: border-color 0.2s;
-  }
-
-  .price-input:focus {
-    border-bottom-color: var(--rose);
-  }
-
-  .price-input::placeholder {
-    color: var(--dust);
-    font-style: italic;
-    font-size: 14px;
-  }
-
-  .jarron-note {
-    font-size: 10px;
-    color: var(--rose-deep);
-    letter-spacing: 0.06em;
-    margin-top: 8px;
-    padding-top: 8px;
-    border-top: 0.5px dashed rgba(44,42,38,0.12);
-    display: flex;
-    align-items: center;
-    gap: 6px;
-  }
-
-  /* === CAJA JARRÓN === */
-  .jarron-section {
-    margin-top: 2.5rem;
-    background: #FDFBF8;
-    border: 0.5px solid rgba(44,42,38,0.12);
-    border-left: 2px solid var(--rose);
-    padding: 1.5rem 1.75rem;
-    display: grid;
-    grid-template-columns: 1fr auto;
-    gap: 1rem;
-    align-items: center;
-  }
-
-  .jarron-title {
-    font-family: var(--font-display);
-    font-size: 20px;
-    margin-bottom: 0.35rem;
-  }
-
-  .jarron-desc {
-    font-size: 12px;
-    color: var(--ink-light);
-    line-height: 1.75;
-  }
-
-  .jarron-price-block {
-    text-align: right;
-  }
-
-  .jarron-price-label {
-    font-size: 9px;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--muted);
-    display: block;
-    margin-bottom: 4px;
-  }
-
-  /* ============================================
-     SECCIÓN: FLORES DE TEMPORADA
-  ============================================ */
-  .flowers-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
-    gap: 1.25rem;
-  }
-
-  .flower-card {
-    background: #FDFBF8;
-    border: 0.5px solid rgba(44,42,38,0.12);
-    overflow: hidden;
-    transition: transform 0.22s;
-  }
-
-  .flower-card:hover { transform: translateY(-3px); }
-
-  .flower-visual {
-    width: 100%;
-    aspect-ratio: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 1.5rem;
-  }
-
-  .flower-visual svg { width: 75%; height: 75%; }
-
-  .flower-info {
-    padding: 0.8rem 0.9rem;
-    border-top: 0.5px solid rgba(44,42,38,0.08);
-  }
-
-  .flower-name {
-    font-family: var(--font-display);
-    font-size: 18px;
-    font-weight: 400;
-    margin-bottom: 2px;
-  }
-
-  .flower-season {
-    font-size: 9px;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--sage);
-    margin-bottom: 3px;
-  }
-
-  .flower-note {
-    font-size: 10px;
-    color: var(--muted);
-    font-style: italic;
-    line-height: 1.5;
-  }
-
-  /* ============================================
-     SECCIÓN: PALETA DE MARCA
-  ============================================ */
-  .palette-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 1.25rem;
-    margin-bottom: 3rem;
-  }
-
-  .swatch-card {
-    border: 0.5px solid rgba(44,42,38,0.12);
-    overflow: hidden;
-    background: white;
-  }
-
-  .swatch-block {
-    width: 100%;
-    aspect-ratio: 4/3;
-  }
-
-  .swatch-info {
-    padding: 0.6rem 0.7rem;
-  }
-
-  .swatch-name {
-    font-family: var(--font-display);
-    font-size: 14px;
-    margin-bottom: 2px;
-  }
-
-  .swatch-hex {
-    font-size: 9px;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  .swatch-role {
-    font-size: 9px;
-    color: var(--dust);
-    font-style: italic;
-    margin-top: 2px;
-  }
-
-  .typography-section {
-    background: #FDFBF8;
-    border: 0.5px solid rgba(44,42,38,0.12);
-    padding: 2rem 2.5rem;
-    margin-top: 1.5rem;
-  }
-
-  .typo-title {
-    font-size: 10px;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--muted);
-    margin-bottom: 1.5rem;
-  }
-
-  .typo-row {
-    display: flex;
-    align-items: baseline;
-    gap: 1.5rem;
-    margin-bottom: 1.25rem;
-    padding-bottom: 1.25rem;
-    border-bottom: 0.5px solid rgba(44,42,38,0.08);
-  }
-  .typo-row:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
-
-  .typo-label {
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    min-width: 80px;
-  }
-
-  /* ============================================
-     SECCIÓN: EXTRAS
-  ============================================ */
-  .extras-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.25rem;
-  }
-
-  @media (max-width: 600px) {
-    .extras-grid { grid-template-columns: 1fr; }
-  }
-
-  .extra-card {
-    background: #FDFBF8;
-    border: 0.5px solid rgba(44,42,38,0.12);
-    padding: 1.5rem;
-    display: flex;
-    gap: 1.25rem;
-    align-items: flex-start;
-  }
-
-  .extra-icon {
-    width: 44px;
-    height: 44px;
-    flex-shrink: 0;
-    background: var(--warm);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .extra-icon svg { width: 26px; height: 26px; }
-
-  .extra-title {
-    font-family: var(--font-display);
-    font-size: 18px;
-    margin-bottom: 4px;
-  }
-
-  .extra-desc {
-    font-size: 11px;
-    color: var(--ink-light);
-    line-height: 1.7;
-    margin-bottom: 8px;
-  }
-
-  .extra-price-row {
-    display: flex;
-    align-items: baseline;
-    gap: 8px;
-  }
-
-  .extra-price-label {
-    font-size: 9px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* ============================================
-     FOOTER
-  ============================================ */
-  .bm-footer {
-    text-align: center;
-    padding: 3rem 2rem;
-    border-top: 0.5px solid rgba(44,42,38,0.12);
-    margin-top: 2rem;
-  }
-
-  .footer-logo {
-    font-family: var(--font-display);
-    font-size: 22px;
-    letter-spacing: 0.1em;
-    margin-bottom: 0.5rem;
-  }
-
-  .footer-tagline {
-    font-family: var(--font-display);
-    font-style: italic;
-    font-size: 13px;
-    color: var(--muted);
-    margin-bottom: 1rem;
-  }
-
-  .footer-links {
-    font-size: 10px;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--muted);
-  }
-
-  /* === EDIT TOOLBAR === */
-  .edit-toolbar {
-    position: fixed;
-    bottom: 2rem;
-    right: 2rem;
-    z-index: 200;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    align-items: flex-end;
-  }
-
-  .toolbar-btn {
-    font-family: var(--font-body);
-    font-size: 10px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 0.65rem 1.2rem;
-    background: var(--ink);
-    color: var(--cream);
-    border: none;
-    cursor: pointer;
-    transition: background 0.2s;
-    white-space: nowrap;
-  }
-
-  .toolbar-btn:hover { background: var(--rose-deep); }
-  .toolbar-btn.secondary {
-    background: var(--cream);
-    color: var(--ink);
-    border: 0.5px solid rgba(44,42,38,0.3);
-  }
-  .toolbar-btn.secondary:hover { background: var(--warm); }
-
-  /* === ANIMATIONS === */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-
-  /* === MISC HELPERS === */
-  .edit-hint {
-    font-size: 10px;
-    color: var(--muted);
-    font-style: italic;
-    text-align: center;
-    padding: 0.75rem;
-    border: 0.5px dashed rgba(44,42,38,0.2);
-    margin-bottom: 2rem;
-    letter-spacing: 0.05em;
-  }
-
-  .edit-hint strong {
-    font-weight: 400;
-    color: var(--ink);
-  }
+:root {
+  --cream:#F0EDE6; --warm:#E8E2D9; --parchment:#DDD6CC;
+  --ink:#2C2A26; --ink-light:#5A5751; --muted:#8A8480;
+  --rose:#C4A4A0; --rose-deep:#9B6E6A; --sage:#8A9B82;
+  --dust:#B8A89A; --blush:#E8D5D0;
+  --font-d:'Cormorant Garamond',Georgia,serif;
+  --font-b:'Jost',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font-b);font-weight:300;background:var(--cream);color:var(--ink);font-size:14px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* PARTÍCULAS */
+.bg-petals{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.petal{position:absolute;opacity:0;animation:petalFall linear infinite}
+@keyframes petalFall{
+  0%{opacity:0;transform:translateY(-20px) rotate(0deg) scale(0.8)}
+  10%{opacity:.3}
+  90%{opacity:.15}
+  100%{opacity:0;transform:translateY(105vh) rotate(400deg) scale(1)}
+}
+
+/* HEADER */
+.bm-header{text-align:center;padding:5rem 2rem 2.5rem;position:relative;z-index:1}
+.bm-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(196,164,160,.15) 0%,transparent 70%);pointer-events:none}
+.bm-logo-svg{width:72px;margin:0 auto 1.5rem;display:block;opacity:0;transform:translateY(20px);animation:fadeUp 1.2s .2s ease forwards}
+.bm-eyebrow{display:flex;align-items:center;justify-content:center;gap:14px;margin-bottom:.6rem;opacity:0;animation:fadeUp 1s .4s ease forwards}
+.bm-eyebrow span{height:.5px;width:44px;background:var(--muted);display:block}
+.bm-eyebrow p{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--muted);font-weight:300}
+.bm-brand-title{font-family:var(--font-d);font-weight:300;font-size:clamp(40px,7vw,62px);letter-spacing:.1em;line-height:1;color:var(--ink);margin-bottom:.4rem;opacity:0;animation:fadeUp 1s .55s ease forwards}
+.bm-tagline{font-family:var(--font-d);font-style:italic;font-size:16px;color:var(--muted);letter-spacing:.04em;opacity:0;animation:fadeUp 1s .7s ease forwards}
+.bm-palette-row{display:flex;justify-content:center;gap:10px;padding:2rem 0 1rem;opacity:0;animation:fadeUp 1s .85s ease forwards}
+.bm-dot{width:16px;height:16px;border-radius:50%;border:.5px solid rgba(44,42,38,.2);transition:transform .3s}
+.bm-dot:hover{transform:scale(1.5)}
+.ig-badge{display:inline-flex;align-items:center;gap:8px;padding:.55rem 1.2rem;border:.5px solid rgba(44,42,38,.2);font-size:11px;letter-spacing:.14em;color:var(--ink-light);text-decoration:none;transition:all .3s;margin-top:1rem;opacity:0;animation:fadeUp 1s 1s ease forwards;position:relative;overflow:hidden}
+.ig-badge::before{content:'';position:absolute;inset:0;background:var(--blush);transform:scaleX(0);transform-origin:left;transition:transform .3s;z-index:-1}
+.ig-badge:hover::before{transform:scaleX(1)}
+.ig-badge:hover{color:var(--rose-deep);border-color:var(--rose)}
+
+/* NAV */
+nav.bm-nav{display:flex;justify-content:center;border-top:.5px solid rgba(44,42,38,.15);border-bottom:.5px solid rgba(44,42,38,.15);background:rgba(240,237,230,.96);backdrop-filter:blur(12px);position:sticky;top:0;z-index:100;overflow-x:auto}
+nav.bm-nav button{font-family:var(--font-b);font-weight:300;font-size:10px;letter-spacing:.22em;text-transform:uppercase;padding:1.1rem 1.8rem;background:none;border:none;border-bottom:1.5px solid transparent;color:var(--muted);cursor:pointer;transition:all .3s;white-space:nowrap}
+nav.bm-nav button:hover,nav.bm-nav button.active{color:var(--ink);border-bottom-color:var(--rose-deep)}
+
+/* SECTIONS */
+.bm-section{display:none;max-width:1000px;margin:0 auto;padding:3.5rem 2rem 5rem;position:relative;z-index:1}
+.bm-section.active{display:block;animation:sectionIn .5s ease both}
+@keyframes sectionIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.section-header{text-align:center;margin-bottom:3rem}
+.section-title{font-family:var(--font-d);font-weight:300;font-size:34px;letter-spacing:.07em;margin-bottom:.4rem}
+.section-sub{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
+.section-divider{width:36px;height:.5px;background:var(--parchment);margin:1rem auto}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}
+
+/* ── ARREGLOS ── */
+.sizes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-bottom:2.5rem}
+@media(max-width:720px){.sizes-grid{grid-template-columns:1fr}}
+.size-card{background:#FDFBF8;border:.5px solid rgba(44,42,38,.13);display:flex;flex-direction:column;transition:transform .35s cubic-bezier(.25,.46,.45,.94),box-shadow .35s ease;position:relative;overflow:hidden}
+.size-card:hover{transform:translateY(-6px);box-shadow:0 22px 50px rgba(44,42,38,.09)}
+.size-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--rose),transparent);opacity:0;transition:opacity .4s}
+.size-card:hover::after{opacity:1}
+.card-visual{background:#fff;display:flex;align-items:center;justify-content:center;min-height:280px;overflow:hidden;position:relative}
+.card-visual img{width:100%;height:280px;object-fit:cover;object-position:center top;transition:transform .5s ease;filter:saturate(.9) brightness(1.04)}
+.size-card:hover .card-visual img{transform:scale(1.04)}
+.card-size-badge{position:absolute;top:1rem;left:1rem;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink);background:rgba(240,237,230,.9);padding:3px 10px;z-index:2;border:.5px solid rgba(44,42,38,.15)}
+.card-body{padding:1.5rem 1.25rem;border-top:.5px solid rgba(44,42,38,.08);flex:1;display:flex;flex-direction:column}
+.card-name{font-family:var(--font-d);font-size:22px;font-weight:400;margin-bottom:.5rem}
+.card-desc{font-size:12px;color:var(--ink-light);line-height:1.75;margin-bottom:1.25rem;flex:1}
+.price-block{border-top:.5px solid rgba(44,42,38,.1);padding-top:1rem;margin-top:auto}
+.price-row{display:flex;justify-content:space-between;align-items:baseline;padding:3px 0}
+.price-label{font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.price-range{font-family:var(--font-d);font-size:20px;font-weight:400;color:var(--ink)}
+.jarron-note{font-size:10px;color:var(--rose-deep);letter-spacing:.06em;margin-top:8px;padding-top:8px;border-top:.5px dashed rgba(44,42,38,.12)}
+
+/* JARRONES */
+.jarron-section-wrap{margin-top:1rem}
+.jarron-section-title{text-align:center;font-family:var(--font-d);font-size:24px;font-weight:300;letter-spacing:.06em;margin:3rem 0 .4rem}
+.jarron-divider{width:36px;height:.5px;background:var(--parchment);margin:.8rem auto 1rem}
+.jarron-section-sub{text-align:center;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-bottom:2rem}
+.jarrones-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+@media(max-width:600px){.jarrones-grid{grid-template-columns:1fr}}
+.jarron-card{background:#FDFBF8;border:.5px solid rgba(44,42,38,.12);border-left:2px solid var(--rose);display:flex;gap:1.5rem;padding:1.75rem;align-items:flex-start;transition:transform .3s,box-shadow .3s}
+.jarron-card:hover{transform:translateY(-3px);box-shadow:0 12px 32px rgba(44,42,38,.07)}
+.jarron-visual{flex-shrink:0;width:90px;display:flex;align-items:center;justify-content:center}
+.jarron-visual svg{width:80px;height:120px}
+.jarron-info{flex:1}
+.jarron-name{font-family:var(--font-d);font-size:20px;font-weight:400;margin-bottom:.4rem}
+.jarron-desc{font-size:11px;color:var(--ink-light);line-height:1.75;margin-bottom:1rem}
+.jarron-price-row{display:flex;justify-content:space-between;align-items:baseline}
+.jarron-price{font-family:var(--font-d);font-size:22px;font-weight:400;color:var(--rose-deep)}
+.extra-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+/* ── FLORES ── */
+.flowers-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:1.25rem}
+.flower-card{background:#FDFBF8;border:.5px solid rgba(44,42,38,.12);overflow:hidden;transition:transform .3s,box-shadow .3s}
+.flower-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(44,42,38,.09)}
+.flower-visual{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:1rem;transition:background .3s}
+.flower-card:hover .flower-visual{background:var(--warm)!important}
+.flower-visual svg{width:78%;height:78%;transition:transform .4s}
+.flower-card:hover .flower-visual svg{transform:scale(1.08) rotate(2deg)}
+.flower-info{padding:.8rem .9rem;border-top:.5px solid rgba(44,42,38,.08)}
+.flower-name{font-family:var(--font-d);font-size:17px;font-weight:400;margin-bottom:2px}
+.flower-season{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--sage);margin-bottom:3px}
+.flower-note{font-size:10px;color:var(--muted);font-style:italic;line-height:1.5}
+
+/* ── EXTRAS ── */
+.extras-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.25rem;margin-bottom:1.5rem}
+@media(max-width:600px){.extras-grid{grid-template-columns:1fr}}
+.extra-card{background:#FDFBF8;border:.5px solid rgba(44,42,38,.12);padding:1.5rem;display:flex;gap:1.25rem;align-items:flex-start;transition:transform .3s}
+.extra-card:hover{transform:translateY(-3px)}
+.extra-icon{width:44px;height:44px;flex-shrink:0;background:var(--warm);display:flex;align-items:center;justify-content:center}
+.extra-icon svg{width:26px;height:26px}
+.extra-title{font-family:var(--font-d);font-size:18px;margin-bottom:4px}
+.extra-desc{font-size:11px;color:var(--ink-light);line-height:1.7;margin-bottom:8px}
+.extra-price{font-family:var(--font-d);font-size:18px;color:var(--rose-deep)}
+.extra-price-label{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+
+/* DISEÑO PERSONALIZADO */
+.custom-block{background:#FDFBF8;border:.5px solid rgba(44,42,38,.15);border-top:2px solid var(--rose);padding:2.5rem 2rem;text-align:center;margin-top:.5rem;position:relative;overflow:hidden}
+.custom-block::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 120%,rgba(196,164,160,.1) 0%,transparent 65%)}
+.custom-block-eyebrow{font-size:9px;letter-spacing:.25em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
+.custom-block-title{font-family:var(--font-d);font-size:30px;font-weight:300;letter-spacing:.05em;margin-bottom:.6rem}
+.custom-block-sub{font-size:12px;color:var(--ink-light);line-height:1.8;max-width:460px;margin:0 auto 1.75rem}
+.custom-cta{display:inline-flex;align-items:center;gap:10px;padding:.85rem 2.2rem;background:var(--ink);color:var(--cream);font-family:var(--font-b);font-size:10px;letter-spacing:.22em;text-transform:uppercase;text-decoration:none;border:none;cursor:pointer;transition:background .3s,transform .2s;position:relative;overflow:hidden}
+.custom-cta:hover{background:var(--rose-deep);transform:translateY(-2px)}
+
+/* ── GALERÍA INSPO ── */
+.inspo-intro{text-align:center;font-size:13px;color:var(--ink-light);line-height:1.8;max-width:520px;margin:0 auto 2.5rem}
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.875rem}
+@media(max-width:600px){.gallery-grid{grid-template-columns:repeat(2,1fr)}}
+.gallery-item{position:relative;overflow:hidden;background:#fff;border:.5px solid rgba(44,42,38,.1);cursor:zoom-in;aspect-ratio:3/4}
+.gallery-item img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transition:transform .5s ease,filter .4s ease;filter:saturate(.8) brightness(1.06) contrast(.97)}
+.gallery-item:hover img{transform:scale(1.05);filter:saturate(1) brightness(1.03) contrast(1)}
+.gallery-overlay{position:absolute;inset:0;background:rgba(240,237,230,0);transition:background .3s;display:flex;align-items:flex-end;justify-content:center;padding-bottom:1rem}
+.gallery-item:hover .gallery-overlay{background:rgba(240,237,230,.08)}
+
+.inspo-ig-note{text-align:center;margin-top:2.5rem;padding:1.5rem;border:.5px solid rgba(44,42,38,.12);background:#FDFBF8}
+.inspo-ig-note p{font-size:12px;color:var(--ink-light);line-height:1.8;margin-bottom:.75rem}
+.inspo-ig-link{display:inline-flex;align-items:center;gap:8px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--rose-deep);text-decoration:none;border-bottom:.5px solid var(--rose);padding-bottom:2px;transition:color .2s,border-color .2s}
+.inspo-ig-link:hover{color:var(--ink);border-color:var(--ink)}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;background:rgba(44,42,38,.93);z-index:1000;display:none;align-items:center;justify-content:center;padding:2rem}
+.lightbox.open{display:flex;animation:fadeIn .3s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.lightbox-inner{max-width:500px;width:100%;position:relative}
+.lightbox-inner img{width:100%;height:auto;max-height:85vh;object-fit:contain;filter:saturate(.85) brightness(1.05)}
+.lightbox-close{position:absolute;top:-2.5rem;right:0;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(240,237,230,.7);background:none;border:none;cursor:pointer;font-family:var(--font-b)}
+
+/* FOOTER */
+.bm-footer{text-align:center;padding:3.5rem 2rem 2rem;border-top:.5px solid rgba(44,42,38,.12);position:relative;z-index:1}
+.footer-logo{font-family:var(--font-d);font-size:22px;letter-spacing:.1em;margin-bottom:.5rem}
+.footer-tagline{font-family:var(--font-d);font-style:italic;font-size:13px;color:var(--muted);margin-bottom:1rem}
+.footer-links{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);line-height:2.2}
+.footer-links a{color:var(--rose-deep);text-decoration:none}
+.footer-links a:hover{text-decoration:underline}
+
+/* TOOLBAR */
+.edit-toolbar{position:fixed;bottom:2rem;right:2rem;z-index:200}
+.toolbar-btn{font-family:var(--font-b);font-size:10px;letter-spacing:.15em;text-transform:uppercase;padding:.75rem 1.4rem;background:var(--ink);color:var(--cream);border:none;cursor:pointer;transition:background .25s,transform .2s;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(44,42,38,.2)}
+.toolbar-btn:hover{background:var(--rose-deep);transform:translateY(-2px)}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media print{.bg-petals,.edit-toolbar,nav.bm-nav,.lightbox{display:none!important}.bm-section{display:block!important}body{background:white}}
 </style>
 </head>
 <body>
 
-<!-- ===== HEADER ===== -->
-<header class="bm-header">
-  <!-- Logo SVG (peonía, estilo line art fiel a la marca) -->
-  <svg class="bm-logo-svg" viewBox="0 0 80 110" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <!-- Pétalo exterior inferior -->
-    <path d="M25 52 Q18 46 22 38 Q26 30 35 32" stroke="#2C2A26" stroke-width="0.9" fill="none"/>
-    <path d="M55 52 Q62 46 58 38 Q54 30 45 32" stroke="#2C2A26" stroke-width="0.9" fill="none"/>
-    <!-- Pétalos medios -->
-    <path d="M22 42 Q20 34 28 30 Q36 26 40 28" stroke="#2C2A26" stroke-width="0.8" fill="none"/>
-    <path d="M58 42 Q60 34 52 30 Q44 26 40 28" stroke="#2C2A26" stroke-width="0.8" fill="none"/>
-    <!-- Pétalos superiores -->
-    <path d="M28 30 Q26 20 32 16 Q38 12 40 14" stroke="#2C2A26" stroke-width="0.75" fill="none"/>
-    <path d="M52 30 Q54 20 48 16 Q42 12 40 14" stroke="#2C2A26" stroke-width="0.75" fill="none"/>
-    <!-- Centro flor -->
-    <path d="M30 34 Q34 26 40 24 Q46 26 50 34 Q52 42 48 50 Q44 56 40 58 Q36 56 32 50 Q28 42 30 34Z" stroke="#2C2A26" stroke-width="0.85" fill="none"/>
-    <!-- Capa interna -->
-    <path d="M33 36 Q36 30 40 29 Q44 30 47 36 Q49 42 46 48 Q43 52 40 53 Q37 52 34 48 Q31 42 33 36Z" stroke="#2C2A26" stroke-width="0.7" fill="none"/>
-    <!-- Centro pequeño -->
-    <ellipse cx="40" cy="41" rx="5" ry="4" stroke="#2C2A26" stroke-width="0.65" fill="none"/>
-    <!-- Tallo con curva característica de la marca -->
-    <path d="M40 58 L39 70 Q38 76 36 80 Q34 84 36 88 Q38 92 40 90 Q42 88 44 84 Q46 80 44 75 Q42 70 42 65" stroke="#2C2A26" stroke-width="0.9" fill="none" stroke-linecap="round"/>
-    <!-- Hoja izquierda -->
-    <path d="M37 72 Q30 68 28 72 Q26 76 33 77 Q36 77 37 75" stroke="#2C2A26" stroke-width="0.7" fill="none"/>
-    <!-- Curva decorativa firma (característica del logo) -->
-    <path d="M40 90 Q38 96 36 100 Q34 104 38 106 Q42 108 44 104 Q46 100 44 96 Q42 92 40 90Z" stroke="#2C2A26" stroke-width="0.8" fill="none" stroke-linecap="round"/>
-  </svg>
+<div class="bg-petals" id="petals"></div>
 
-  <div class="bm-eyebrow">
-    <span></span>
-    <p>Florería</p>
-    <span></span>
-  </div>
+<!-- ══ HEADER ══ -->
+<header class="bm-header">
+  <svg class="bm-logo-svg" viewBox="0 0 80 110" fill="none">
+    <path d="M25 52 Q18 46 22 38 Q26 30 35 32" stroke="#2C2A26" stroke-width=".9" fill="none"/>
+    <path d="M55 52 Q62 46 58 38 Q54 30 45 32" stroke="#2C2A26" stroke-width=".9" fill="none"/>
+    <path d="M22 42 Q20 34 28 30 Q36 26 40 28" stroke="#2C2A26" stroke-width=".8" fill="none"/>
+    <path d="M58 42 Q60 34 52 30 Q44 26 40 28" stroke="#2C2A26" stroke-width=".8" fill="none"/>
+    <path d="M28 30 Q26 20 32 16 Q38 12 40 14" stroke="#2C2A26" stroke-width=".75" fill="none"/>
+    <path d="M52 30 Q54 20 48 16 Q42 12 40 14" stroke="#2C2A26" stroke-width=".75" fill="none"/>
+    <path d="M30 34 Q34 26 40 24 Q46 26 50 34 Q52 42 48 50 Q44 56 40 58 Q36 56 32 50 Q28 42 30 34Z" stroke="#2C2A26" stroke-width=".85" fill="none"/>
+    <path d="M33 36 Q36 30 40 29 Q44 30 47 36 Q49 42 46 48 Q43 52 40 53 Q37 52 34 48 Q31 42 33 36Z" stroke="#2C2A26" stroke-width=".7" fill="none"/>
+    <ellipse cx="40" cy="41" rx="5" ry="4" stroke="#2C2A26" stroke-width=".65" fill="none"/>
+    <path d="M40 58 L39 70 Q38 76 36 80 Q34 84 36 88 Q38 92 40 90 Q42 88 44 84 Q46 80 44 75 Q42 70 42 65" stroke="#2C2A26" stroke-width=".9" fill="none" stroke-linecap="round"/>
+    <path d="M37 72 Q30 68 28 72 Q26 76 33 77 Q36 77 37 75" stroke="#2C2A26" stroke-width=".7" fill="none"/>
+    <path d="M40 90 Q38 96 36 100 Q34 104 38 106 Q42 108 44 104 Q46 100 44 96 Q42 92 40 90Z" stroke="#2C2A26" stroke-width=".8" fill="none" stroke-linecap="round"/>
+  </svg>
+  <div class="bm-eyebrow"><span></span><p>Florería · Monterrey, N.L.</p><span></span></div>
   <h1 class="bm-brand-title">Blooming Muse</h1>
   <p class="bm-tagline">Hecho con intención.</p>
-
+  <div style="display:flex;justify-content:center;margin-top:.5rem">
+    <a href="https://instagram.com/blooming.musemty" target="_blank" class="ig-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      @blooming.musemty
+    </a>
+  </div>
   <div class="bm-palette-row">
-    <div class="bm-dot" style="background:#F0EDE6;" title="Crema base"></div>
-    <div class="bm-dot" style="background:#E8D5D0;" title="Blush"></div>
-    <div class="bm-dot" style="background:#C4A4A0;" title="Rosa antiguo"></div>
-    <div class="bm-dot" style="background:#9B6E6A;" title="Rosa profundo"></div>
-    <div class="bm-dot" style="background:#8A9B82;" title="Salvia"></div>
-    <div class="bm-dot" style="background:#B8A89A;" title="Polvo"></div>
-    <div class="bm-dot" style="background:#2C2A26;" title="Tinta"></div>
+    <div class="bm-dot" style="background:#F0EDE6"></div>
+    <div class="bm-dot" style="background:#E8D5D0"></div>
+    <div class="bm-dot" style="background:#C4A4A0"></div>
+    <div class="bm-dot" style="background:#9B6E6A"></div>
+    <div class="bm-dot" style="background:#8A9B82"></div>
+    <div class="bm-dot" style="background:#B8A89A"></div>
+    <div class="bm-dot" style="background:#2C2A26"></div>
   </div>
 </header>
 
-<!-- ===== NAVEGACIÓN ===== -->
-<nav class="bm-nav no-print">
-  <button class="active" onclick="showTab('arreglos', this)">Arreglos</button>
-  <button onclick="showTab('flores', this)">Flores de temporada</button>
-  <button onclick="showTab('extras', this)">Extras</button>
-  <button onclick="showTab('paleta', this)">Paleta de marca</button>
+<!-- ══ NAV ══ -->
+<nav class="bm-nav">
+  <button class="active" onclick="showTab('arreglos',this)">Arreglos</button>
+  <button onclick="showTab('flores',this)">Flores de temporada</button>
+  <button onclick="showTab('extras',this)">Extras</button>
+  <button onclick="showTab('inspo',this)">Inspo</button>
 </nav>
 
-<!-- ============================================
-     SECCIÓN 1: ARREGLOS
-============================================ -->
+<!-- ══════════════════════════════════
+     TAB: ARREGLOS
+══════════════════════════════════ -->
 <section id="tab-arreglos" class="bm-section active">
   <div class="section-header">
     <h2 class="section-title">Arreglos sobre pedido</h2>
@@ -785,170 +235,62 @@
     <p class="section-sub">Cada pieza, diseñada para quien la recibe</p>
   </div>
 
-  <p class="edit-hint no-print">✦ <strong>Archivo editable:</strong> haz clic en cualquier campo de precio para editarlo directamente · Los cambios se guardan al imprimir o exportar</p>
-
   <div class="sizes-grid">
 
-    <!-- === CHICO === -->
-    <div class="size-card">
-      <div class="card-visual" style="background:#F5F0EE;">
-        <span class="card-size-badge">01</span>
-        <svg viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Bouquet chico: gerbera + gypsophila -->
-          <circle cx="50" cy="38" r="18" stroke="#2C2A26" stroke-width="0.85" fill="none"/>
-          <circle cx="50" cy="38" r="10" stroke="#2C2A26" stroke-width="0.7" fill="none"/>
-          <circle cx="50" cy="38" r="5" stroke="#2C2A26" stroke-width="0.65" fill="#FAEAEA"/>
-          <circle cx="50" cy="38" r="2.5" fill="#C4A4A0"/>
-          <!-- Pequeñas flores gypsophila -->
-          <circle cx="34" cy="30" r="3" stroke="#2C2A26" stroke-width="0.5" fill="white"/>
-          <circle cx="66" cy="30" r="3" stroke="#2C2A26" stroke-width="0.5" fill="white"/>
-          <circle cx="30" cy="42" r="2.5" stroke="#2C2A26" stroke-width="0.5" fill="white"/>
-          <circle cx="70" cy="42" r="2.5" stroke="#2C2A26" stroke-width="0.5" fill="white"/>
-          <!-- Tallo -->
-          <path d="M50 56 L49 88 Q48 94 47 98" stroke="#2C2A26" stroke-width="0.85" fill="none" stroke-linecap="round"/>
-          <!-- Hoja -->
-          <path d="M47 72 Q40 68 39 73 Q38 78 45 77" stroke="#8A9B82" stroke-width="0.75" fill="none"/>
-          <!-- Envoltura cónica -->
-          <path d="M38 95 Q44 102 50 100 Q56 102 62 95 L58 118 Q54 124 50 122 Q46 124 42 118 Z" stroke="#2C2A26" stroke-width="0.8" fill="rgba(232,226,217,0.5)"/>
-          <!-- Moño -->
-          <path d="M44 116 Q50 112 56 116" stroke="#C4A4A0" stroke-width="1" fill="none" stroke-linecap="round"/>
-        </svg>
+    <!-- CHICO: foto flores_4 (periódico, pequeño) -->
+    <div class="size-card reveal">
+      <div class="card-visual">
+        <span class="card-size-badge">01 — Chico</span>
+        <img src="/mnt/user-data/uploads/flores_4.jpeg" alt="Arreglo chico Blooming Muse">
       </div>
       <div class="card-body">
-        <p class="price-label" style="margin-bottom:0.3rem;">Tamaño 01</p>
+        <p class="price-label" style="margin-bottom:.3rem">Tamaño 01</p>
         <h3 class="card-name">Arreglo Chico</h3>
-        <p class="card-desc">Bouquet íntimo para un gesto espontáneo y sincero. 3–5 flores de temporada con follaje complementario, envuelto en papel de marca con lazo.</p>
-        <div class="card-flowers">
-          <span class="flower-tag">3–5 flores</span>
-          <span class="flower-tag green">gypsophila</span>
-          <span class="flower-tag green">eucalipto</span>
-        </div>
+        <p class="card-desc">Bouquet íntimo para un gesto espontáneo y sincero. Flores de temporada seleccionadas con follaje y gypsophila, envuelto en papel de marca con lazo.</p>
         <div class="price-block">
           <div class="price-row">
-            <span class="price-label">Precio base</span>
-            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio base arreglo chico">
+            <span class="price-label">Rango de precio</span>
+            <span class="price-range">$300 — $450</span>
           </div>
-          <div class="price-row">
-            <span class="price-label">Con jarrón</span>
-            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio con jarrón arreglo chico">
-          </div>
-          <p class="jarron-note">✦ Incluye tarjeta personalizada</p>
+          <p class="jarron-note">✦ Incluye tarjeta personalizada · precio varía según flores</p>
         </div>
       </div>
     </div>
 
-    <!-- === MEDIANO === -->
-    <div class="size-card">
-      <div class="card-visual" style="background:#EEEEE8;">
-        <span class="card-size-badge">02</span>
-        <svg viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Bouquet mediano: rosas + alstroemeria -->
-          <!-- Rosa izquierda -->
-          <path d="M38 26 Q33 18 36 24 Q30 18 35 26 Q28 22 34 30 Q26 30 34 34 Q30 40 36 38 Q36 46 40 40 Q42 46 44 40 Q44 48 46 42 Q52 44 48 38 Q56 34 48 30 Q54 22 46 26 Q48 18 42 24 Q44 18 38 26Z" stroke="#2C2A26" stroke-width="0.75" fill="#FAEAEA"/>
-          <circle cx="42" cy="32" r="4" fill="#C4A4A0" stroke="#2C2A26" stroke-width="0.5"/>
-          <!-- Rosa derecha (más pequeña) -->
-          <path d="M58 34 Q54 28 56 32 Q52 28 55 34 Q50 30 54 36 Q50 38 54 40 Q52 44 56 42 Q56 48 58 44 Q60 48 62 44 Q62 50 64 44 Q68 46 66 40 Q70 38 66 36 Q70 30 62 32 Q64 28 60 32 Q62 28 58 34Z" stroke="#2C2A26" stroke-width="0.7" fill="#F5D5D5"/>
-          <circle cx="60" cy="38" r="3" fill="#B8A0A0" stroke="#2C2A26" stroke-width="0.45"/>
-          <!-- Gypsophila fondo -->
-          <circle cx="28" cy="36" r="2.5" stroke="#2C2A26" stroke-width="0.45" fill="white"/>
-          <circle cx="74" cy="36" r="2" stroke="#2C2A26" stroke-width="0.45" fill="white"/>
-          <circle cx="34" cy="22" r="2" stroke="#2C2A26" stroke-width="0.45" fill="white"/>
-          <circle cx="66" cy="26" r="2.5" stroke="#2C2A26" stroke-width="0.45" fill="white"/>
-          <!-- Tallos -->
-          <path d="M42 50 L41 85 Q40 90 40 96" stroke="#2C2A26" stroke-width="0.85" fill="none" stroke-linecap="round"/>
-          <path d="M60 50 L59 82 Q58 88 58 96" stroke="#2C2A26" stroke-width="0.75" fill="none" stroke-linecap="round"/>
-          <!-- Hojas -->
-          <path d="M40 68 Q32 64 31 70 Q30 75 38 74" stroke="#8A9B82" stroke-width="0.7" fill="none"/>
-          <path d="M58 70 Q65 66 66 72 Q67 76 60 75" stroke="#8A9B82" stroke-width="0.7" fill="none"/>
-          <!-- Envoltura -->
-          <path d="M32 94 Q40 102 50 100 Q60 102 68 94 L64 120 Q58 128 50 126 Q42 128 36 120 Z" stroke="#2C2A26" stroke-width="0.8" fill="rgba(232,226,217,0.5)"/>
-          <path d="M40 122 Q50 118 60 122" stroke="#C4A4A0" stroke-width="1.1" fill="none" stroke-linecap="round"/>
-        </svg>
+    <!-- MEDIANO: foto flores_3 (blanco love, mediano) -->
+    <div class="size-card reveal reveal-d1">
+      <div class="card-visual">
+        <span class="card-size-badge">02 — Mediano</span>
+        <img src="/mnt/user-data/uploads/flores_3.jpeg" alt="Arreglo mediano Blooming Muse">
       </div>
       <div class="card-body">
-        <p class="price-label" style="margin-bottom:0.3rem;">Tamaño 02</p>
+        <p class="price-label" style="margin-bottom:.3rem">Tamaño 02</p>
         <h3 class="card-name">Arreglo Mediano</h3>
-        <p class="card-desc">Composición balanceada con variedad de texturas y color. 6–9 flores principales con follaje verde, gypsophila y papel de seda de marca.</p>
-        <div class="card-flowers">
-          <span class="flower-tag">6–9 flores</span>
-          <span class="flower-tag">rosas</span>
-          <span class="flower-tag">alstroemeria</span>
-          <span class="flower-tag green">gypsophila</span>
-        </div>
+        <p class="card-desc">Composición balanceada con variedad de flores y texturas. Alstroemeria, crisantemos y claveles con eucalipto y gypsophila, envuelto en papel de marca.</p>
         <div class="price-block">
           <div class="price-row">
-            <span class="price-label">Precio base</span>
-            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio base arreglo mediano">
+            <span class="price-label">Rango de precio</span>
+            <span class="price-range">$500 — $650</span>
           </div>
-          <div class="price-row">
-            <span class="price-label">Con jarrón</span>
-            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio con jarrón arreglo mediano">
-          </div>
-          <p class="jarron-note">✦ Incluye tarjeta personalizada</p>
+          <p class="jarron-note">✦ Incluye tarjeta personalizada · precio varía según flores</p>
         </div>
       </div>
     </div>
 
-    <!-- === GRANDE === -->
-    <div class="size-card">
-      <div class="card-visual" style="background:#EEE8F0;">
-        <span class="card-size-badge">03</span>
-        <svg viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <!-- Bouquet grande: peonía grande + lirios + amaranto -->
-          <!-- Peonía principal -->
-          <path d="M40 12 Q35 4 38 10 Q32 6 37 14 Q28 10 35 18 Q26 18 34 24 Q26 28 34 30 Q28 36 36 34 Q34 42 40 38 Q42 46 44 38 Q50 44 50 34 Q58 38 56 30 Q64 28 56 24 Q64 18 55 18 Q62 10 53 14 Q58 6 52 10 Q54 4 48 12" stroke="#2C2A26" stroke-width="0.8" fill="none"/>
-          <path d="M34 20 Q36 14 40 12 Q44 14 46 20 Q48 26 46 32 Q44 38 40 40 Q36 38 34 32 Q32 26 34 20Z" stroke="#2C2A26" stroke-width="0.75" fill="rgba(232,208,210,0.4)"/>
-          <ellipse cx="40" cy="26" rx="6" ry="5" stroke="#2C2A26" stroke-width="0.6" fill="none"/>
-          <circle cx="40" cy="26" r="3" fill="#9B6E6A"/>
-          <!-- Lirio izquierda -->
-          <path d="M24 30 Q20 22 26 20 Q30 18 32 24 Q34 30 30 34" stroke="#2C2A26" stroke-width="0.7" fill="rgba(232,226,240,0.4)"/>
-          <path d="M20 28 Q16 22 22 20 Q26 18 28 24" stroke="#2C2A26" stroke-width="0.6" fill="none"/>
-          <!-- Amaranto derecha -->
-          <path d="M58 18 L58 50" stroke="#2C2A26" stroke-width="0.7"/>
-          <circle cx="58" cy="22" r="2.5" fill="#C4A4A0"/>
-          <circle cx="56" cy="28" r="2" fill="#B8A0B0"/>
-          <circle cx="60" cy="24" r="1.8" fill="#C4A4A0"/>
-          <circle cx="57" cy="33" r="2.2" fill="#B8A0B0"/>
-          <circle cx="59" cy="38" r="2" fill="#C4A4A0"/>
-          <circle cx="58" cy="44" r="1.8" fill="#B090A8"/>
-          <!-- Gypsophila -->
-          <circle cx="28" cy="16" r="2" stroke="#2C2A26" stroke-width="0.4" fill="white"/>
-          <circle cx="68" cy="20" r="2.5" stroke="#2C2A26" stroke-width="0.4" fill="white"/>
-          <circle cx="72" cy="30" r="2" stroke="#2C2A26" stroke-width="0.4" fill="white"/>
-          <!-- Tallos -->
-          <path d="M38 50 L37 82 Q36 88 36 96" stroke="#2C2A26" stroke-width="0.85" fill="none" stroke-linecap="round"/>
-          <path d="M42 52 L43 84 Q44 90 44 96" stroke="#2C2A26" stroke-width="0.75" fill="none" stroke-linecap="round"/>
-          <path d="M26 40 L28 80 Q29 88 30 96" stroke="#2C2A26" stroke-width="0.65" fill="none" stroke-linecap="round"/>
-          <!-- Hojas -->
-          <path d="M36 65 Q27 60 26 67 Q25 73 34 72" stroke="#8A9B82" stroke-width="0.7" fill="none"/>
-          <path d="M44 68 Q52 63 53 70 Q54 75 46 74" stroke="#8A9B82" stroke-width="0.7" fill="none"/>
-          <path d="M37 80 Q30 76 29 82 Q28 87 36 86" stroke="#8A9B82" stroke-width="0.6" fill="none"/>
-          <!-- Envoltura grande -->
-          <path d="M22 94 Q34 104 50 102 Q66 104 78 94 L72 124 Q64 134 50 132 Q36 134 28 124 Z" stroke="#2C2A26" stroke-width="0.85" fill="rgba(232,226,217,0.45)"/>
-          <path d="M36 128 Q50 122 64 128" stroke="#C4A4A0" stroke-width="1.2" fill="none" stroke-linecap="round"/>
-          <!-- Detalle lazo -->
-          <path d="M44 126 Q50 120 56 126 Q62 122 56 128" stroke="#9B6E6A" stroke-width="0.8" fill="none"/>
-        </svg>
+    <!-- GRANDE: foto flores_1 (el más grande, verde fondo) -->
+    <div class="size-card reveal reveal-d2">
+      <div class="card-visual">
+        <span class="card-size-badge">03 — Grande</span>
+        <img src="/mnt/user-data/uploads/flores_1.jpeg" alt="Arreglo grande Blooming Muse">
       </div>
       <div class="card-body">
-        <p class="price-label" style="margin-bottom:0.3rem;">Tamaño 03</p>
+        <p class="price-label" style="margin-bottom:.3rem">Tamaño 03</p>
         <h3 class="card-name">Arreglo Grande</h3>
-        <p class="card-desc">Pieza de declaración con diseño completamente personalizable. 10–15+ flores en capas con follaje dramático, amaranto, lirios u orquídeas.</p>
-        <div class="card-flowers">
-          <span class="flower-tag">10–15+ flores</span>
-          <span class="flower-tag">peonía</span>
-          <span class="flower-tag">lirio</span>
-          <span class="flower-tag">amaranto</span>
-          <span class="flower-tag green">eucalipto</span>
-        </div>
+        <p class="card-desc">Pieza de declaración. Diseño completamente personalizable con rosas, lirios, alstroemeria y follaje abundante. Presencia y volumen incomparables.</p>
         <div class="price-block">
           <div class="price-row">
-            <span class="price-label">Precio base</span>
-            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio base arreglo grande">
-          </div>
-          <div class="price-row">
-            <span class="price-label">Con jarrón</span>
-            <input class="price-input" type="text" placeholder="$  —" value="" aria-label="Precio con jarrón arreglo grande">
+            <span class="price-label">Rango de precio</span>
+            <span class="price-range">$700 — $900</span>
           </div>
           <p class="jarron-note">✦ Incluye tarjeta personalizada + mensaje impreso</p>
         </div>
@@ -956,287 +298,398 @@
     </div>
   </div>
 
-  <!-- NOTA JARRÓN -->
-  <div class="jarron-section">
-    <div>
-      <h4 class="jarron-title">Complemento: Presentación en jarrón</h4>
-      <p class="jarron-desc">Todos los arreglos se entregan envueltos en papel de marca. Si deseas presentar el arreglo en jarrón de vidrio, este lleva un costo adicional cotizado según tamaño. Disponibles en tres formatos: cilíndrico corto, cilíndrico alto y tipo bola.</p>
-    </div>
-    <div class="jarron-price-block">
-      <span class="jarron-price-label">Costo extra jarrón</span>
-      <input class="price-input" type="text" placeholder="$  —" style="text-align:center; font-size:22px;" aria-label="Costo extra jarrón">
+  <!-- ── JARRONES ── -->
+  <div class="jarron-section-wrap reveal">
+    <p class="jarron-section-title">Complemento: Jarrón de vidrio</p>
+    <div class="jarron-divider"></div>
+    <p class="jarron-section-sub">Costo adicional al arreglo · eleva la presentación para regalo o decoración</p>
+
+    <div class="jarrones-grid">
+
+      <!-- CILÍNDRICO ALTO -->
+      <div class="jarron-card">
+        <div class="jarron-visual">
+          <svg viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- sombra base -->
+            <ellipse cx="40" cy="126" rx="22" ry="4" fill="rgba(0,0,0,0.07)"/>
+            <!-- cuerpo cilíndrico -->
+            <path d="M16 22 C15 24 13 110 13 118 C13 123 26 126 40 126 C54 126 67 123 67 118 C67 110 65 24 64 22 Z" fill="rgba(200,225,242,0.28)" stroke="#8BBAD4" stroke-width="1.1"/>
+            <!-- boca superior (elipse) -->
+            <ellipse cx="40" cy="22" rx="24" ry="7" fill="rgba(185,218,238,0.35)" stroke="#8BBAD4" stroke-width="1.1"/>
+            <!-- fondo interior (elipse oscura) -->
+            <ellipse cx="40" cy="120" rx="21" ry="5" fill="rgba(160,200,224,0.22)" stroke="#8BBAD4" stroke-width=".7"/>
+            <!-- reflejo principal izquierdo -->
+            <path d="M20 32 Q18 70 18 100 Q18 112 20 120" stroke="rgba(255,255,255,.75)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- reflejo secundario -->
+            <path d="M25 28 Q23 60 24 88 Q24 104 25 114" stroke="rgba(255,255,255,.38)" stroke-width="1.4" fill="none" stroke-linecap="round"/>
+            <!-- línea agua dentro -->
+            <path d="M14 78 C20 80 60 80 66 78" stroke="#8BBAD4" stroke-width=".6" stroke-dasharray="4,3" opacity=".45"/>
+            <!-- leve tinte agua -->
+            <path d="M14 78 C20 80 60 80 66 78 L67 118 C67 123 54 126 40 126 C26 126 13 123 13 118 Z" fill="rgba(160,210,235,0.08)"/>
+            <!-- tallos visibles -->
+            <line x1="38" y1="22" x2="37" y2="78" stroke="#7A9070" stroke-width="1.1" opacity=".55"/>
+            <line x1="43" y1="22" x2="44" y2="78" stroke="#6A8060" stroke-width=".8" opacity=".4"/>
+            <line x1="35" y1="22" x2="34" y2="78" stroke="#8A9870" stroke-width=".7" opacity=".35"/>
+            <!-- etiqueta -->
+            <rect x="27" y="88" width="26" height="16" rx="1" fill="rgba(240,237,230,.85)" stroke="#DDD6CC" stroke-width=".6"/>
+            <text x="40" y="99" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#9B6E6A" letter-spacing="1">BM</text>
+            <!-- lazo sutil en cuello -->
+            <path d="M28 26 Q40 23 52 26" stroke="#C4A4A0" stroke-width=".8" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="jarron-info">
+          <h4 class="jarron-name">Jarrón cilíndrico alto</h4>
+          <p class="jarron-desc">Vidrio transparente de alto cilíndrico. Ideal para arreglos medianos y grandes. Eleva cualquier bouquet para regalo o decoración duradera en casa.</p>
+          <div class="jarron-price-row">
+            <span class="extra-label">Costo adicional</span>
+            <span class="jarron-price">+ $150</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- BOLA -->
+      <div class="jarron-card">
+        <div class="jarron-visual">
+          <svg viewBox="0 0 80 130" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- sombra -->
+            <ellipse cx="40" cy="126" rx="20" ry="3.5" fill="rgba(0,0,0,0.07)"/>
+            <!-- cuello/boca -->
+            <path d="M29 20 C28 18 52 18 51 20 L54 44 C54 50 50 54 40 54 C30 54 26 50 26 44 Z" fill="rgba(190,220,240,0.32)" stroke="#8BBAD4" stroke-width="1.1"/>
+            <ellipse cx="40" cy="20" rx="11.5" ry="4" fill="rgba(175,215,238,0.4)" stroke="#8BBAD4" stroke-width="1.1"/>
+            <!-- cuerpo esférico (círculo grande) -->
+            <circle cx="40" cy="92" r="34" fill="rgba(200,225,242,0.25)" stroke="#8BBAD4" stroke-width="1.1"/>
+            <!-- fondo interno círculo -->
+            <circle cx="40" cy="92" r="32" fill="rgba(180,215,238,0.06)"/>
+            <!-- reflejo principal -->
+            <path d="M14 76 Q10 90 12 106 Q13 115 17 122" stroke="rgba(255,255,255,.72)" stroke-width="3" fill="none" stroke-linecap="round"/>
+            <!-- reflejo secundario -->
+            <path d="M20 68 Q16 80 18 96" stroke="rgba(255,255,255,.35)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+            <!-- línea agua -->
+            <path d="M8 96 Q40 100 72 96" stroke="#8BBAD4" stroke-width=".6" stroke-dasharray="4,3" opacity=".4"/>
+            <!-- agua tint -->
+            <path d="M8 96 Q40 100 72 96 A34 34 0 0 1 8 96 Z" fill="rgba(160,210,235,0.07)"/>
+            <!-- tallos -->
+            <line x1="39" y1="20" x2="38" y2="96" stroke="#7A9070" stroke-width="1.1" opacity=".5"/>
+            <line x1="43" y1="20" x2="44" y2="96" stroke="#6A8060" stroke-width=".75" opacity=".36"/>
+            <!-- etiqueta -->
+            <rect x="27" y="104" width="26" height="15" rx="1" fill="rgba(240,237,230,.85)" stroke="#DDD6CC" stroke-width=".6"/>
+            <text x="40" y="114" text-anchor="middle" font-family="Georgia,serif" font-size="5" fill="#9B6E6A" letter-spacing="1">BM</text>
+            <!-- lazo cuello -->
+            <path d="M32 24 Q40 21 48 24" stroke="#C4A4A0" stroke-width=".9" fill="none" stroke-linecap="round"/>
+          </svg>
+        </div>
+        <div class="jarron-info">
+          <h4 class="jarron-name">Jarrón tipo bola</h4>
+          <p class="jarron-desc">Esfera de vidrio con cuello corto. Perfecto para arreglos chicos y medianos. Acabado elegante y minimalista, ideal para regalar o centros de mesa.</p>
+          <div class="jarron-price-row">
+            <span class="extra-label">Costo adicional</span>
+            <span class="jarron-price">+ $90</span>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ============================================
-     SECCIÓN 2: FLORES DE TEMPORADA
-============================================ -->
+<!-- ══════════════════════════════════
+     TAB: FLORES DE TEMPORADA
+══════════════════════════════════ -->
 <section id="tab-flores" class="bm-section">
   <div class="section-header">
     <h2 class="section-title">Flores de temporada</h2>
     <div class="section-divider"></div>
     <p class="section-sub">Selección disponible para personalizar tu pedido</p>
   </div>
-
   <div class="flowers-grid">
 
     <!-- ROSA -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#FBF5F4;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <path d="M40 20 Q36 14 38 20 Q32 16 37 24 Q28 20 35 28 Q26 28 33 34 Q28 40 36 38 Q34 46 40 42 Q42 48 44 42 Q50 46 50 38 Q58 40 54 34 Q62 28 54 28 Q60 20 52 24 Q56 16 50 20 Q52 14 46 20 Q48 14 40 20Z" stroke="#2C2A26" stroke-width="0.8" fill="#FAEAEA"/>
-          <circle cx="40" cy="32" r="5" fill="#C4A4A0" stroke="#2C2A26" stroke-width="0.6"/>
-          <circle cx="40" cy="32" r="2.5" fill="#9B6E6A"/>
-          <line x1="40" y1="46" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
-          <path d="M33 58 Q36 53 38 60" stroke="#8A9B82" stroke-width="0.7" fill="#D4EAD0"/>
+    <div class="flower-card reveal">
+      <div class="flower-visual" style="background:#FBF4F4">
+        <svg viewBox="0 0 90 90" fill="none">
+          <!-- rosa con pétalos realistas en capas -->
+          <path d="M45 16 Q40 9 42 16 Q35 10 39 20 Q29 14 36 24 Q24 22 33 29 Q23 31 32 36 Q24 42 34 40 Q30 49 37 46 Q36 55 42 50 Q44 58 46 50 Q52 55 51 46 Q57 49 56 40 Q65 42 58 36 Q67 31 57 29 Q65 22 54 24 Q61 14 51 20 Q55 10 48 16 Q50 9 45 16Z" fill="#E87888" stroke="#C8606E" stroke-width=".7"/>
+          <path d="M38 22 Q36 18 41 20 Q38 17 45 17 Q52 17 52 20 Q55 18 53 22 Q57 27 55 34 Q51 40 45 42 Q39 40 35 34 Q33 27 38 22Z" fill="#D86878" stroke="#B85060" stroke-width=".6"/>
+          <path d="M40 25 Q38 22 45 21 Q52 22 50 25 Q53 30 51 36 Q49 40 45 41 Q41 40 39 36 Q37 30 40 25Z" fill="#C85060"/>
+          <circle cx="45" cy="32" r="4" fill="#A03848"/>
+          <line x1="45" y1="48" x2="43" y2="74" stroke="#4A6040" stroke-width="1.3"/>
+          <path d="M42 60 Q33 55 31 62 Q29 68 41 67" stroke="#4A6040" stroke-width=".85" fill="#78A070"/>
+          <path d="M44 67 Q35 64 34 71 Q33 77 44 75" stroke="#4A6040" stroke-width=".75" fill="#6A9060"/>
         </svg>
       </div>
       <div class="flower-info">
         <p class="flower-name">Rosa</p>
         <p class="flower-season">Todo el año</p>
-        <p class="flower-note">El clásico atemporal, disponible en rojo, rosa, blanco y durazno</p>
-      </div>
-    </div>
-
-    <!-- PEONÍA -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#F9F4F4;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <path d="M40 14 Q36 8 38 14 Q32 8 36 16 Q26 12 34 20 Q22 20 32 26 Q22 30 32 32 Q24 38 34 36 Q32 44 38 40 Q38 48 40 42 Q42 48 42 40 Q48 44 46 36 Q56 38 48 32 Q58 30 48 26 Q58 20 46 20 Q54 12 44 16 Q48 8 40 14Z" stroke="#2C2A26" stroke-width="0.8" fill="#F5E0DE"/>
-          <path d="M34 22 Q36 16 40 14 Q44 16 46 22 Q48 28 46 34 Q44 38 40 40 Q36 38 34 34 Q32 28 34 22Z" stroke="#2C2A26" stroke-width="0.7" fill="rgba(232,200,200,0.5)"/>
-          <circle cx="40" cy="28" r="5" stroke="#2C2A26" stroke-width="0.6" fill="none"/>
-          <circle cx="40" cy="28" r="2.5" fill="#C4A4A0"/>
-          <line x1="40" y1="46" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
-        </svg>
-      </div>
-      <div class="flower-info">
-        <p class="flower-name">Peonía</p>
-        <p class="flower-season">Primavera — Verano</p>
-        <p class="flower-note">La flor emblema de la marca, voluptuosa y romántica</p>
-      </div>
-    </div>
-
-    <!-- HORTENCIA -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#F4F8F5;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <circle cx="40" cy="34" r="20" stroke="#2C2A26" stroke-width="0.75" fill="none"/>
-          <circle cx="32" cy="26" r="6" stroke="#2C2A26" stroke-width="0.6" fill="#E8F0E5"/>
-          <circle cx="48" cy="26" r="6" stroke="#2C2A26" stroke-width="0.6" fill="#D8EAD8"/>
-          <circle cx="32" cy="38" r="6" stroke="#2C2A26" stroke-width="0.6" fill="#D8EAD8"/>
-          <circle cx="48" cy="38" r="6" stroke="#2C2A26" stroke-width="0.6" fill="#E8F0E5"/>
-          <circle cx="40" cy="30" r="5" stroke="#2C2A26" stroke-width="0.6" fill="#E0EAE0"/>
-          <circle cx="40" cy="40" r="5" stroke="#2C2A26" stroke-width="0.6" fill="#D8EAD8"/>
-          <line x1="40" y1="54" x2="38" y2="70" stroke="#2C2A26" stroke-width="0.75"/>
-        </svg>
-      </div>
-      <div class="flower-info">
-        <p class="flower-name">Hortencia</p>
-        <p class="flower-season">Primavera — Verano</p>
-        <p class="flower-note">Volumen suave y textura esponjosa, ideal como base</p>
-      </div>
-    </div>
-
-    <!-- GERBERA -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#FDF8F0;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <path d="M40 14 L42 26 L53 20 L46 30 L58 30 L48 36 L56 44 L44 40 L44 52 L40 42 L36 52 L36 40 L24 44 L32 36 L22 30 L34 30 L27 20 L38 26 Z" stroke="#2C2A26" stroke-width="0.8" fill="#FDE8C8"/>
-          <circle cx="40" cy="34" r="8" stroke="#2C2A26" stroke-width="0.7" fill="#F5C080"/>
-          <circle cx="40" cy="34" r="4" fill="#E8A050" stroke="#2C2A26" stroke-width="0.5"/>
-          <line x1="40" y1="50" x2="38" y2="70" stroke="#2C2A26" stroke-width="0.75"/>
-        </svg>
-      </div>
-      <div class="flower-info">
-        <p class="flower-name">Gerbera</p>
-        <p class="flower-season">Todo el año</p>
-        <p class="flower-note">Alegría radiante, disponible en todos los tonos</p>
-      </div>
-    </div>
-
-    <!-- LIRIO -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#F5F5FA;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <ellipse cx="40" cy="22" rx="10" ry="14" stroke="#2C2A26" stroke-width="0.8" fill="#E8E8F5"/>
-          <ellipse cx="28" cy="32" rx="9" ry="13" stroke="#2C2A26" stroke-width="0.7" fill="#D8D8EE" transform="rotate(-20 28 32)"/>
-          <ellipse cx="52" cy="32" rx="9" ry="13" stroke="#2C2A26" stroke-width="0.7" fill="#D8D8EE" transform="rotate(20 52 32)"/>
-          <circle cx="40" cy="30" r="4" fill="#7A70A8" stroke="#2C2A26" stroke-width="0.5"/>
-          <!-- Estambres -->
-          <line x1="36" y1="28" x2="33" y2="22" stroke="#2C2A26" stroke-width="0.5"/>
-          <line x1="40" y1="26" x2="40" y2="20" stroke="#2C2A26" stroke-width="0.5"/>
-          <line x1="44" y1="28" x2="47" y2="22" stroke="#2C2A26" stroke-width="0.5"/>
-          <circle cx="33" cy="22" r="1.5" fill="#C4A4A0"/>
-          <circle cx="40" cy="20" r="1.5" fill="#C4A4A0"/>
-          <circle cx="47" cy="22" r="1.5" fill="#C4A4A0"/>
-          <line x1="40" y1="44" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
-        </svg>
-      </div>
-      <div class="flower-info">
-        <p class="flower-name">Lirio</p>
-        <p class="flower-season">Todo el año</p>
-        <p class="flower-note">Presencia escultórica y aroma que llena el espacio</p>
-      </div>
-    </div>
-
-    <!-- LISIANTHUS -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#F9F4FC;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <ellipse cx="36" cy="22" rx="8" ry="12" stroke="#2C2A26" stroke-width="0.75" fill="#EDD9F5" transform="rotate(-15 36 22)"/>
-          <ellipse cx="48" cy="22" rx="8" ry="12" stroke="#2C2A26" stroke-width="0.75" fill="#EDD9F5" transform="rotate(15 48 22)"/>
-          <ellipse cx="40" cy="18" rx="9" ry="13" stroke="#2C2A26" stroke-width="0.75" fill="#E4CAF0"/>
-          <ellipse cx="30" cy="28" rx="7" ry="11" stroke="#2C2A26" stroke-width="0.7" fill="#DEC0EA" transform="rotate(-25 30 28)"/>
-          <ellipse cx="50" cy="28" rx="7" ry="11" stroke="#2C2A26" stroke-width="0.7" fill="#DEC0EA" transform="rotate(25 50 28)"/>
-          <circle cx="40" cy="32" r="4.5" fill="#9B7B6B" stroke="#2C2A26" stroke-width="0.5"/>
-          <line x1="40" y1="44" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
-        </svg>
-      </div>
-      <div class="flower-info">
-        <p class="flower-name">Lisianthus</p>
-        <p class="flower-season">Primavera — Otoño</p>
-        <p class="flower-note">Elegancia en capas, parece seda viva</p>
+        <p class="flower-note">Clásica y atemporal · rojo, rosa, blanco, durazno</p>
       </div>
     </div>
 
     <!-- ALSTROEMERIA -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#FCF8F3;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <!-- Pétalos alstroemeria (6 pétalos) -->
-          <ellipse cx="40" cy="18" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#FBE8CC"/>
-          <ellipse cx="50" cy="22" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#F8D8B0" transform="rotate(60 50 22)"/>
-          <ellipse cx="50" cy="38" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#FBE8CC" transform="rotate(120 50 38)"/>
-          <ellipse cx="40" cy="46" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#F8D8B0" transform="rotate(180 40 46)"/>
-          <ellipse cx="30" cy="38" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#FBE8CC" transform="rotate(240 30 38)"/>
-          <ellipse cx="30" cy="22" rx="6" ry="10" stroke="#2C2A26" stroke-width="0.7" fill="#F8D8B0" transform="rotate(300 30 22)"/>
-          <circle cx="40" cy="32" r="5" fill="#E8A87C" stroke="#2C2A26" stroke-width="0.6"/>
-          <!-- Líneas de los pétalos -->
-          <line x1="40" y1="28" x2="40" y2="22" stroke="#C4805A" stroke-width="0.5"/>
-          <line x1="40" y1="36" x2="38" y2="40" stroke="#C4805A" stroke-width="0.5"/>
-          <line x1="40" y1="48" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
+    <div class="flower-card reveal reveal-d1">
+      <div class="flower-visual" style="background:#FFF5EE">
+        <svg viewBox="0 0 90 90" fill="none">
+          <!-- alstroemeria 6 pétalos en trompeta, con rayas -->
+          <g transform="translate(45,40)">
+            <ellipse cx="0" cy="-16" rx="7" ry="12" fill="#F5C8A0" stroke="#D8A070" stroke-width=".7"/>
+            <!-- rayas características -->
+            <line x1="-2" y1="-8" x2="-3" y2="-15" stroke="#C08040" stroke-width=".5"/>
+            <line x1="0" y1="-7" x2="0" y2="-15" stroke="#C08040" stroke-width=".5"/>
+            <line x1="2" y1="-8" x2="3" y2="-15" stroke="#C08040" stroke-width=".5"/>
+            <ellipse cx="0" cy="-16" rx="7" ry="12" fill="#F0C090" stroke="#D8A070" stroke-width=".7" transform="rotate(60)"/>
+            <line x1="-2" y1="-8" x2="-3" y2="-15" stroke="#B87030" stroke-width=".5" transform="rotate(60)"/>
+            <line x1="0" y1="-7" x2="0" y2="-15" stroke="#B87030" stroke-width=".5" transform="rotate(60)"/>
+            <ellipse cx="0" cy="-16" rx="7" ry="12" fill="#F5C8A0" stroke="#D8A070" stroke-width=".7" transform="rotate(120)"/>
+            <line x1="-2" y1="-8" x2="-3" y2="-15" stroke="#C08040" stroke-width=".5" transform="rotate(120)"/>
+            <line x1="0" y1="-7" x2="0" y2="-15" stroke="#C08040" stroke-width=".5" transform="rotate(120)"/>
+            <ellipse cx="0" cy="-14" rx="6.5" ry="11" fill="#EEC090" stroke="#D0986A" stroke-width=".6" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-14" rx="6.5" ry="11" fill="#F5C8A0" stroke="#D8A070" stroke-width=".6" transform="rotate(240)"/>
+            <ellipse cx="0" cy="-14" rx="6.5" ry="11" fill="#EEC090" stroke="#D0986A" stroke-width=".6" transform="rotate(300)"/>
+            <!-- centro estambres -->
+            <circle cx="0" cy="0" r="5" fill="#E8A050" stroke="#C07828" stroke-width=".6"/>
+            <line x1="-2.5" y1="-3" x2="-4" y2="-8" stroke="#986018" stroke-width=".7"/>
+            <line x1="0" y1="-4" x2="0" y2="-9" stroke="#986018" stroke-width=".7"/>
+            <line x1="2.5" y1="-3" x2="4" y2="-8" stroke="#986018" stroke-width=".7"/>
+            <circle cx="-4" cy="-8" r="1.5" fill="#C07828"/>
+            <circle cx="0" cy="-9" r="1.5" fill="#C07828"/>
+            <circle cx="4" cy="-8" r="1.5" fill="#C07828"/>
+          </g>
+          <line x1="45" y1="56" x2="43" y2="78" stroke="#4A6040" stroke-width="1.2"/>
+          <path d="M42 66 Q35 62 34 68 Q33 73 42 72" stroke="#4A6040" stroke-width=".75" fill="#78A070"/>
         </svg>
       </div>
       <div class="flower-info">
         <p class="flower-name">Alstroemeria</p>
         <p class="flower-season">Todo el año</p>
-        <p class="flower-note">Duradera y versátil, en tonos cálidos y fríos</p>
+        <p class="flower-note">Duradera y versátil · pétalos con rayas características</p>
       </div>
     </div>
 
-    <!-- CLAVEL -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#FBF5F8;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <path d="M40 18 Q36 14 38 20 Q32 16 36 22 Q28 20 34 26 Q26 26 33 30 Q26 34 34 34 Q30 40 38 36 Q38 44 40 38 Q42 44 42 36 Q50 40 46 34 Q54 34 47 30 Q54 26 46 26 Q52 20 44 22 Q48 16 42 20 Q44 14 40 18Z" stroke="#2C2A26" stroke-width="0.8" fill="#F5C8D8"/>
-          <path d="M34 24 Q36 20 40 20 Q44 20 46 24 Q48 28 46 32 Q44 36 40 38 Q36 36 34 32 Q32 28 34 24Z" stroke="#2C2A26" stroke-width="0.65" fill="rgba(232,180,200,0.4)"/>
-          <circle cx="40" cy="30" r="4" fill="#D4828A" stroke="#2C2A26" stroke-width="0.5"/>
-          <line x1="40" y1="44" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.75"/>
-          <path d="M33 58 Q36 53 38 59" stroke="#8A9B82" stroke-width="0.65" fill="none"/>
+    <!-- CRISANTEMO -->
+    <div class="flower-card reveal reveal-d2">
+      <div class="flower-visual" style="background:#FBF4FA">
+        <svg viewBox="0 0 90 90" fill="none">
+          <!-- crisantemo tipo margarita/pom, capas de pétalos -->
+          <!-- pétalos externos -->
+          <g transform="translate(45,42)">
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#D4A8DC" stroke="#B888C4" stroke-width=".6"/>
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#C898CC" stroke="#A880BC" stroke-width=".6" transform="rotate(30)"/>
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#D4A8DC" stroke="#B888C4" stroke-width=".6" transform="rotate(60)"/>
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#C898CC" stroke="#A880BC" stroke-width=".6" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#D4A8DC" stroke="#B888C4" stroke-width=".6" transform="rotate(120)"/>
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#C898CC" stroke="#A880BC" stroke-width=".6" transform="rotate(150)"/>
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#D4A8DC" stroke="#B888C4" stroke-width=".6" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#C898CC" stroke="#A880BC" stroke-width=".6" transform="rotate(210)"/>
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#D4A8DC" stroke="#B888C4" stroke-width=".6" transform="rotate(240)"/>
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#C898CC" stroke="#A880BC" stroke-width=".6" transform="rotate(270)"/>
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#D4A8DC" stroke="#B888C4" stroke-width=".6" transform="rotate(300)"/>
+            <ellipse cx="0" cy="-26" rx="5" ry="10" fill="#C898CC" stroke="#A880BC" stroke-width=".6" transform="rotate(330)"/>
+            <!-- capas medias -->
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#C090C8" stroke="#A070B0" stroke-width=".55" transform="rotate(15)"/>
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#B880B8" stroke="#9870A8" stroke-width=".55" transform="rotate(45)"/>
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#C090C8" stroke="#A070B0" stroke-width=".55" transform="rotate(75)"/>
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#B880B8" stroke="#9870A8" stroke-width=".55" transform="rotate(105)"/>
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#C090C8" stroke="#A070B0" stroke-width=".55" transform="rotate(135)"/>
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#B880B8" stroke="#9870A8" stroke-width=".55" transform="rotate(165)"/>
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#C090C8" stroke="#A070B0" stroke-width=".55" transform="rotate(195)"/>
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#B880B8" stroke="#9870A8" stroke-width=".55" transform="rotate(225)"/>
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#C090C8" stroke="#A070B0" stroke-width=".55" transform="rotate(255)"/>
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#B880B8" stroke="#9870A8" stroke-width=".55" transform="rotate(285)"/>
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#C090C8" stroke="#A070B0" stroke-width=".55" transform="rotate(315)"/>
+            <ellipse cx="0" cy="-18" rx="4.5" ry="9" fill="#B880B8" stroke="#9870A8" stroke-width=".55" transform="rotate(345)"/>
+            <!-- centro -->
+            <circle cx="0" cy="0" r="8" fill="#A868A8" stroke="#8850A0" stroke-width=".6"/>
+            <circle cx="0" cy="0" r="5" fill="#904898"/>
+            <circle cx="0" cy="0" r="2.5" fill="#782080"/>
+          </g>
+          <line x1="45" y1="60" x2="43" y2="78" stroke="#4A6040" stroke-width="1.2"/>
         </svg>
       </div>
       <div class="flower-info">
-        <p class="flower-name">Clavel</p>
+        <p class="flower-name">Crisantemo</p>
         <p class="flower-season">Todo el año</p>
-        <p class="flower-note">Textura fruncida, larga duración y carácter propio</p>
+        <p class="flower-note">Voluminoso y texturado · morado, rosa, blanco, amarillo</p>
+      </div>
+    </div>
+
+    <!-- CLAVEL LISIANTHUS (flor morada usada en fotos) -->
+    <div class="flower-card reveal">
+      <div class="flower-visual" style="background:#F6F2FA">
+        <svg viewBox="0 0 90 90" fill="none">
+          <!-- lisianthus / clavel morado en capas onduladas -->
+          <path d="M45 18 Q40 12 42 18 Q36 13 38 21 Q29 17 35 25 Q26 25 33 31 Q27 37 35 35 Q32 44 39 40 Q38 49 44 45 Q45 53 46 45 Q52 49 51 40 Q58 44 56 35 Q64 37 57 31 Q64 25 55 25 Q61 17 52 21 Q54 13 48 18 Q50 12 45 18Z" fill="#C888D8" stroke="#A868C0" stroke-width=".7"/>
+          <path d="M38 23 Q36 19 40 20 Q37 18 45 18 Q53 18 52 20 Q56 19 54 23 Q57 28 55 35 Q51 41 45 43 Q39 41 35 35 Q33 28 38 23Z" fill="#BC78C8" stroke="#9860B8" stroke-width=".6"/>
+          <!-- pétalos ondulados internos -->
+          <path d="M40 25 Q37 22 39 26 Q36 24 38 28 Q36 32 38 36 Q41 42 45 43 Q49 42 52 36 Q54 32 52 28 Q54 24 51 26 Q53 22 50 25 Q48 22 45 22 Q42 22 40 25Z" fill="#B068B8" stroke="#9050A8" stroke-width=".55"/>
+          <circle cx="45" cy="34" r="5" fill="#8848A8"/>
+          <circle cx="45" cy="34" r="2.5" fill="#6830A0"/>
+          <line x1="45" y1="49" x2="43" y2="74" stroke="#4A6040" stroke-width="1.2"/>
+          <path d="M42 62 Q34 58 32 65 Q30 71 42 70" stroke="#4A6040" stroke-width=".8" fill="#78A070"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Lisianthus</p>
+        <p class="flower-season">Primavera — Otoño</p>
+        <p class="flower-note">Pétalos en capas suaves · morado, blanco, rosa</p>
+      </div>
+    </div>
+
+    <!-- GERBERA / MARGARITA ROSA (muy usada en ramos) -->
+    <div class="flower-card reveal reveal-d1">
+      <div class="flower-visual" style="background:#FFF8F0">
+        <svg viewBox="0 0 90 90" fill="none">
+          <!-- margarita/gerbera rosa con centro amarillo -->
+          <g transform="translate(45,42)">
+            <!-- pétalos alargados en 2 capas -->
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#F0A8B8" stroke="#D880A0" stroke-width=".65"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#ECA0B0" stroke="#D07898" stroke-width=".65" transform="rotate(22.5)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#F0A8B8" stroke="#D880A0" stroke-width=".65" transform="rotate(45)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#ECA0B0" stroke="#D07898" stroke-width=".65" transform="rotate(67.5)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#F0A8B8" stroke="#D880A0" stroke-width=".65" transform="rotate(90)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#ECA0B0" stroke="#D07898" stroke-width=".65" transform="rotate(112.5)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#F0A8B8" stroke="#D880A0" stroke-width=".65" transform="rotate(135)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#ECA0B0" stroke="#D07898" stroke-width=".65" transform="rotate(157.5)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#F0A8B8" stroke="#D880A0" stroke-width=".65" transform="rotate(180)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#ECA0B0" stroke="#D07898" stroke-width=".65" transform="rotate(202.5)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#F0A8B8" stroke="#D880A0" stroke-width=".65" transform="rotate(225)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#ECA0B0" stroke="#D07898" stroke-width=".65" transform="rotate(247.5)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#F0A8B8" stroke="#D880A0" stroke-width=".65" transform="rotate(270)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#ECA0B0" stroke="#D07898" stroke-width=".65" transform="rotate(292.5)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#F0A8B8" stroke="#D880A0" stroke-width=".65" transform="rotate(315)"/>
+            <ellipse cx="0" cy="-24" rx="5.5" ry="13" fill="#ECA0B0" stroke="#D07898" stroke-width=".65" transform="rotate(337.5)"/>
+            <!-- disco central -->
+            <circle cx="0" cy="0" r="11" fill="#E8B830" stroke="#C89810" stroke-width=".7"/>
+            <circle cx="0" cy="0" r="7" fill="#C89018" stroke="#A87010" stroke-width=".6"/>
+            <circle cx="0" cy="0" r="4" fill="#904808"/>
+            <!-- puntitos del disco -->
+            <circle cx="0" cy="-5.5" r=".9" fill="#E8B830"/>
+            <circle cx="3.9" cy="-3.8" r=".9" fill="#E8B830"/>
+            <circle cx="5.5" cy="0" r=".9" fill="#E8B830"/>
+            <circle cx="3.9" cy="3.8" r=".9" fill="#E8B830"/>
+            <circle cx="0" cy="5.5" r=".9" fill="#E8B830"/>
+            <circle cx="-3.9" cy="3.8" r=".9" fill="#E8B830"/>
+            <circle cx="-5.5" cy="0" r=".9" fill="#E8B830"/>
+            <circle cx="-3.9" cy="-3.8" r=".9" fill="#E8B830"/>
+          </g>
+          <line x1="45" y1="58" x2="43" y2="78" stroke="#4A6040" stroke-width="1.3"/>
+          <path d="M42 68 Q34 64 32 70 Q30 76 42 74" stroke="#4A6040" stroke-width=".8" fill="#78A070"/>
+        </svg>
+      </div>
+      <div class="flower-info">
+        <p class="flower-name">Margarita / Gerbera</p>
+        <p class="flower-season">Todo el año</p>
+        <p class="flower-note">Radiante y alegre · rosa, blanco, amarillo, lila</p>
       </div>
     </div>
 
     <!-- GYPSOPHILA -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#FDFAF5;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <circle cx="32" cy="26" r="4.5" fill="white" stroke="#2C2A26" stroke-width="0.6"/><circle cx="32" cy="26" r="1.8" fill="#F5E8D0"/>
-          <circle cx="40" cy="20" r="4.5" fill="white" stroke="#2C2A26" stroke-width="0.6"/><circle cx="40" cy="20" r="1.8" fill="#F5E8D0"/>
-          <circle cx="48" cy="26" r="4.5" fill="white" stroke="#2C2A26" stroke-width="0.6"/><circle cx="48" cy="26" r="1.8" fill="#F5E8D0"/>
-          <circle cx="28" cy="34" r="4" fill="white" stroke="#2C2A26" stroke-width="0.55"/><circle cx="28" cy="34" r="1.6" fill="#F5E8D0"/>
-          <circle cx="36" cy="32" r="4.5" fill="white" stroke="#2C2A26" stroke-width="0.6"/><circle cx="36" cy="32" r="1.8" fill="#F5E8D0"/>
-          <circle cx="44" cy="32" r="4.5" fill="white" stroke="#2C2A26" stroke-width="0.6"/><circle cx="44" cy="32" r="1.8" fill="#F5E8D0"/>
-          <circle cx="52" cy="34" r="4" fill="white" stroke="#2C2A26" stroke-width="0.55"/><circle cx="52" cy="34" r="1.6" fill="#F5E8D0"/>
-          <circle cx="40" cy="40" r="4" fill="white" stroke="#2C2A26" stroke-width="0.55"/><circle cx="40" cy="40" r="1.6" fill="#F5E8D0"/>
-          <line x1="40" y1="48" x2="38" y2="68" stroke="#2C2A26" stroke-width="0.7"/>
+    <div class="flower-card reveal reveal-d2">
+      <div class="flower-visual" style="background:#FDFAF5">
+        <svg viewBox="0 0 90 90" fill="none">
+          <!-- ramitas de gypsophila -->
+          <path d="M45 70 Q42 58 38 48 Q35 40 30 34 Q26 28 25 22" stroke="#8A9B82" stroke-width="1" fill="none"/>
+          <path d="M45 70 Q47 57 50 47 Q53 38 56 32 Q59 26 62 20" stroke="#8A9B82" stroke-width="1" fill="none"/>
+          <path d="M44 62 Q40 54 36 48 Q32 42 30 36" stroke="#8A9B82" stroke-width=".8" fill="none"/>
+          <path d="M46 62 Q50 54 53 48 Q57 42 60 36" stroke="#8A9B82" stroke-width=".8" fill="none"/>
+          <path d="M43 55 Q39 48 36 42" stroke="#8A9B82" stroke-width=".7" fill="none"/>
+          <path d="M47 55 Q51 48 54 42" stroke="#8A9B82" stroke-width=".7" fill="none"/>
+          <!-- florcitas blancas en puntas de ramas -->
+          <circle cx="25" cy="22" r="4.5" fill="white" stroke="#DDD6CC" stroke-width=".7"/><circle cx="25" cy="22" r="2.2" fill="#F8F0E0"/>
+          <circle cx="62" cy="20" r="4.5" fill="white" stroke="#DDD6CC" stroke-width=".7"/><circle cx="62" cy="20" r="2.2" fill="#F8F0E0"/>
+          <circle cx="30" cy="34" r="4" fill="white" stroke="#DDD6CC" stroke-width=".6"/><circle cx="30" cy="34" r="2" fill="#F8F0E0"/>
+          <circle cx="56" cy="32" r="4" fill="white" stroke="#DDD6CC" stroke-width=".6"/><circle cx="56" cy="32" r="2" fill="#F8F0E0"/>
+          <circle cx="36" cy="42" r="4.2" fill="white" stroke="#DDD6CC" stroke-width=".65"/><circle cx="36" cy="42" r="2.1" fill="#F8F0E0"/>
+          <circle cx="54" cy="42" r="4.2" fill="white" stroke="#DDD6CC" stroke-width=".65"/><circle cx="54" cy="42" r="2.1" fill="#F8F0E0"/>
+          <circle cx="36" cy="48" r="3.5" fill="white" stroke="#DDD6CC" stroke-width=".6"/>
+          <circle cx="53" cy="47" r="3.5" fill="white" stroke="#DDD6CC" stroke-width=".6"/>
+          <circle cx="38" cy="55" r="4" fill="white" stroke="#DDD6CC" stroke-width=".6"/><circle cx="38" cy="55" r="2" fill="#F8F0E0"/>
+          <circle cx="50" cy="54" r="4" fill="white" stroke="#DDD6CC" stroke-width=".6"/><circle cx="50" cy="54" r="2" fill="#F8F0E0"/>
+          <!-- botones sin abrir -->
+          <ellipse cx="30" cy="27" rx="2.5" ry="4" fill="#E8E4DA" stroke="#C8C0B0" stroke-width=".5"/>
+          <ellipse cx="60" cy="26" rx="2.5" ry="4" fill="#E8E4DA" stroke="#C8C0B0" stroke-width=".5"/>
+          <ellipse cx="42" cy="46" rx="2" ry="3.5" fill="#E8E4DA" stroke="#C8C0B0" stroke-width=".5"/>
         </svg>
       </div>
       <div class="flower-info">
         <p class="flower-name">Gypsophila</p>
         <p class="flower-season">Todo el año</p>
-        <p class="flower-note">Nube de flores diminutas, toque aéreo y romántico</p>
-      </div>
-    </div>
-
-    <!-- AMARANTO -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#F8F4FA;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <path d="M40 14 L40 60" stroke="#2C2A26" stroke-width="0.8"/>
-          <circle cx="40" cy="18" r="3.5" fill="#C4A0C0"/><circle cx="38" cy="24" r="2.8" fill="#B890B8"/><circle cx="42" cy="21" r="2.5" fill="#C4A0C0"/>
-          <circle cx="37" cy="30" r="2.8" fill="#A880A8"/><circle cx="43" cy="27" r="2.5" fill="#B890B8"/>
-          <circle cx="38" cy="36" r="2.5" fill="#C4A0C0"/><circle cx="42" cy="33" r="2.8" fill="#9870A0"/>
-          <circle cx="39" cy="42" r="2.5" fill="#B890B8"/><circle cx="41" cy="39" r="2.2" fill="#A880A8"/>
-          <circle cx="40" cy="48" r="2.5" fill="#9870A0"/>
-          <path d="M34 56 Q38 60 40 58 Q42 60 46 56" stroke="#8A9B82" stroke-width="0.7" fill="#D4EAD0"/>
-        </svg>
-      </div>
-      <div class="flower-info">
-        <p class="flower-name">Amaranto</p>
-        <p class="flower-season">Verano — Otoño</p>
-        <p class="flower-note">Caída dramática y tono profundo, efecto editorial</p>
+        <p class="flower-note">Nube blanca y aérea · base de todos los ramos</p>
       </div>
     </div>
 
     <!-- EUCALIPTO -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#F4F8F4;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <path d="M40 14 Q38 22 36 30 Q34 38 36 46 Q38 54 40 60" stroke="#2C2A26" stroke-width="0.8" fill="none"/>
-          <ellipse cx="32" cy="24" rx="8" ry="5" stroke="#8A9B82" stroke-width="0.75" fill="#C8DACC" transform="rotate(-30 32 24)"/>
-          <ellipse cx="48" cy="22" rx="8" ry="5" stroke="#8A9B82" stroke-width="0.75" fill="#B8D0BE" transform="rotate(30 48 22)"/>
-          <ellipse cx="30" cy="34" rx="8" ry="5" stroke="#8A9B82" stroke-width="0.75" fill="#C8DACC" transform="rotate(-25 30 34)"/>
-          <ellipse cx="50" cy="32" rx="8" ry="5" stroke="#8A9B82" stroke-width="0.75" fill="#B8D0BE" transform="rotate(25 50 32)"/>
-          <ellipse cx="32" cy="44" rx="7" ry="5" stroke="#8A9B82" stroke-width="0.7" fill="#C8DACC" transform="rotate(-20 32 44)"/>
-          <ellipse cx="48" cy="42" rx="7" ry="5" stroke="#8A9B82" stroke-width="0.7" fill="#B8D0BE" transform="rotate(20 48 42)"/>
+    <div class="flower-card reveal">
+      <div class="flower-visual" style="background:#F2F7F2">
+        <svg viewBox="0 0 90 90" fill="none">
+          <!-- rama de eucalipto con hojas ovaladas características -->
+          <path d="M45 75 Q43 62 42 50 Q41 38 42 26 Q43 18 45 12" stroke="#5A7050" stroke-width="1.2" fill="none"/>
+          <!-- hojas opuestas en el tallo -->
+          <ellipse cx="36" cy="60" rx="12" ry="7" fill="#A8C0A0" stroke="#7A9070" stroke-width=".7" transform="rotate(-35 36 60)"/>
+          <ellipse cx="55" cy="58" rx="11" ry="7" fill="#98B090" stroke="#6A8060" stroke-width=".7" transform="rotate(35 55 58)"/>
+          <ellipse cx="34" cy="46" rx="11" ry="6.5" fill="#A8C0A0" stroke="#7A9070" stroke-width=".65" transform="rotate(-30 34 46)"/>
+          <ellipse cx="56" cy="44" rx="11" ry="6.5" fill="#98B090" stroke="#6A8060" stroke-width=".65" transform="rotate(30 56 44)"/>
+          <ellipse cx="35" cy="32" rx="10" ry="6" fill="#B8CEB0" stroke="#7A9070" stroke-width=".6" transform="rotate(-28 35 32)"/>
+          <ellipse cx="55" cy="30" rx="10" ry="6" fill="#A8C0A0" stroke="#6A8060" stroke-width=".6" transform="rotate(28 55 30)"/>
+          <ellipse cx="37" cy="20" rx="9" ry="5.5" fill="#B8CEB0" stroke="#7A9070" stroke-width=".55" transform="rotate(-20 37 20)"/>
+          <ellipse cx="53" cy="18" rx="9" ry="5.5" fill="#A8C0A0" stroke="#6A8060" stroke-width=".55" transform="rotate(20 53 18)"/>
+          <!-- nervadura central en hojas -->
+          <line x1="30" y1="58" x2="42" y2="62" stroke="#6A8060" stroke-width=".5" opacity=".6"/>
+          <line x1="50" y1="56" x2="60" y2="60" stroke="#6A8060" stroke-width=".5" opacity=".6"/>
         </svg>
       </div>
       <div class="flower-info">
         <p class="flower-name">Eucalipto</p>
         <p class="flower-season">Todo el año</p>
-        <p class="flower-note">Follaje base con aroma fresco, siempre presente</p>
+        <p class="flower-note">Follaje aromático · base verde de todos los arreglos</p>
       </div>
     </div>
 
-    <!-- ORQUÍDEA -->
-    <div class="flower-card">
-      <div class="flower-visual" style="background:#F6FAFC;">
-        <svg viewBox="0 0 80 80" fill="none">
-          <!-- Tallo curvo -->
-          <path d="M42 68 Q50 60 56 48 Q62 36 58 26 Q54 18 50 20" stroke="#8A9B82" stroke-width="0.8" fill="none"/>
-          <!-- Flores orquídea en tallo -->
-          <path d="M52 42 Q46 36 48 42 Q44 38 44 44 Q46 50 52 48 Q58 46 58 40 Q56 34 52 42Z" stroke="#2C2A26" stroke-width="0.7" fill="#D0E8F0"/>
-          <path d="M56 28 Q50 22 52 28 Q48 24 48 30 Q50 36 56 34 Q62 32 62 26 Q60 20 56 28Z" stroke="#2C2A26" stroke-width="0.7" fill="#C8E0EC"/>
-          <!-- Botón -->
-          <circle cx="50" cy="20" r="3" stroke="#2C2A26" stroke-width="0.6" fill="#E0EEF5"/>
-          <circle cx="46" cy="16" r="2.5" stroke="#2C2A26" stroke-width="0.55" fill="#EAF3F8"/>
-          <!-- Centro flores -->
-          <circle cx="52" cy="44" r="2" fill="#9B7B6B"/>
-          <circle cx="56" cy="30" r="2" fill="#9B7B6B"/>
-          <!-- Hoja base -->
-          <path d="M40 68 Q34 62 34 68 Q34 72 38 72 Q42 72 42 68Z" stroke="#8A9B82" stroke-width="0.7" fill="#C8DACC"/>
+    <!-- ROSA SPRAY (mini rosas, muy usadas) -->
+    <div class="flower-card reveal reveal-d1">
+      <div class="flower-visual" style="background:#FFF4F6">
+        <svg viewBox="0 0 90 90" fill="none">
+          <!-- ramita con 3 mini rosas -->
+          <path d="M45 75 Q43 65 41 55 Q39 45 38 35" stroke="#5A7050" stroke-width="1" fill="none"/>
+          <path d="M45 75 Q47 65 49 55 Q51 45 52 35" stroke="#5A7050" stroke-width="1" fill="none"/>
+          <path d="M45 75 Q45 63 45 52 Q45 42 45 32" stroke="#5A7050" stroke-width=".8" fill="none"/>
+          <!-- rosa pequeña izq -->
+          <g transform="translate(36,32)">
+            <path d="M0-10 Q3-7 4-3 Q5 1 3 5 Q1 7 0 8 Q-1 7 -3 5 Q-5 1 -4-3 Q-3-7 0-10Z" fill="#F0C0C8" stroke="#D8A0A8" stroke-width=".55"/>
+            <path d="M-4-7 Q-7-4 -8 0 Q-9 4 -7 8" stroke="#D8A0A8" stroke-width=".5" fill="none"/>
+            <path d="M4-7 Q7-4 8 0 Q9 4 7 8" stroke="#D8A0A8" stroke-width=".5" fill="none"/>
+            <circle cx="0" cy="1" r="2.5" fill="#C08898"/>
+          </g>
+          <!-- rosa centro -->
+          <g transform="translate(45,28)">
+            <path d="M0-11 Q3-8 5-3 Q6 2 4 6 Q2 8 0 9 Q-2 8 -4 6 Q-6 2 -5-3 Q-3-8 0-11Z" fill="#F5B0C0" stroke="#D89098" stroke-width=".6"/>
+            <path d="M-4-8 Q-8-4 -9 1 Q-10 5 -7 9" stroke="#D89098" stroke-width=".5" fill="none"/>
+            <path d="M4-8 Q8-4 9 1 Q10 5 7 9" stroke="#D89098" stroke-width=".5" fill="none"/>
+            <circle cx="0" cy="1" r="3" fill="#C07888"/>
+          </g>
+          <!-- rosa der -->
+          <g transform="translate(53,33)">
+            <path d="M0-10 Q3-7 4-3 Q5 1 3 5 Q1 7 0 8 Q-1 7 -3 5 Q-5 1 -4-3 Q-3-7 0-10Z" fill="#FFC0C8" stroke="#E0A0A8" stroke-width=".55"/>
+            <path d="M-4-7 Q-7-4 -8 0" stroke="#E0A0A8" stroke-width=".5" fill="none"/>
+            <path d="M4-7 Q7-4 8 0" stroke="#E0A0A8" stroke-width=".5" fill="none"/>
+            <circle cx="0" cy="1" r="2.5" fill="#D09090"/>
+          </g>
+          <!-- hojitas -->
+          <path d="M40 52 Q34 48 33 53 Q32 57 39 56" stroke="#4A6040" stroke-width=".7" fill="#88A870"/>
+          <path d="M50 50 Q56 46 57 51 Q58 55 51 54" stroke="#4A6040" stroke-width=".7" fill="#78A060"/>
         </svg>
       </div>
       <div class="flower-info">
-        <p class="flower-name">Orquídea</p>
+        <p class="flower-name">Rosa spray</p>
         <p class="flower-season">Todo el año</p>
-        <p class="flower-note">Elegancia pura, presencia escultórica en arreglos grandes</p>
+        <p class="flower-note">Mini rosas en ramillete · durazno, rosa, rojo, blanco</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ============================================
-     SECCIÓN 3: EXTRAS & COMPLEMENTOS
-============================================ -->
+<!-- ══════════════════════════════════
+     TAB: EXTRAS
+══════════════════════════════════ -->
 <section id="tab-extras" class="bm-section">
   <div class="section-header">
     <h2 class="section-title">Extras & Complementos</h2>
@@ -1245,302 +698,203 @@
   </div>
 
   <div class="extras-grid">
-
-    <div class="extra-card">
+    <!-- ENTREGA -->
+    <div class="extra-card reveal">
       <div class="extra-icon">
         <svg viewBox="0 0 26 26" fill="none">
-          <path d="M4 20 Q13 8 22 20" stroke="#2C2A26" stroke-width="0.9" fill="none"/>
-          <path d="M7 18 Q13 12 19 18" stroke="#8A9B82" stroke-width="0.8" fill="rgba(138,155,130,0.2)"/>
-          <rect x="6" y="19" width="14" height="5" rx="1" stroke="#2C2A26" stroke-width="0.75" fill="rgba(232,226,217,0.5)"/>
-        </svg>
-      </div>
-      <div>
-        <h4 class="extra-title">Jarrón de vidrio</h4>
-        <p class="extra-desc">Disponible en tres formatos: cilíndrico corto, cilíndrico alto y tipo bola. Eleva cualquier arreglo para regalo o decoración permanente.</p>
-        <div class="extra-price-row">
-          <span class="extra-price-label">Costo adicional</span>
-          <input class="price-input" type="text" placeholder="$  —" style="font-size:16px;" aria-label="Precio jarrón">
-        </div>
-      </div>
-    </div>
-
-    <div class="extra-card">
-      <div class="extra-icon">
-        <svg viewBox="0 0 26 26" fill="none">
-          <rect x="4" y="6" width="18" height="14" rx="1" stroke="#2C2A26" stroke-width="0.75" fill="rgba(232,213,208,0.3)"/>
-          <line x1="4" y1="10" x2="22" y2="10" stroke="#2C2A26" stroke-width="0.5"/>
-          <line x1="8" y1="14" x2="18" y2="14" stroke="#8A9B82" stroke-width="0.5"/>
-          <line x1="8" y1="17" x2="15" y2="17" stroke="#8A9B82" stroke-width="0.5"/>
-        </svg>
-      </div>
-      <div>
-        <h4 class="extra-title">Tarjeta de mensaje</h4>
-        <p class="extra-desc">Tarjeta kraft con logo impreso y espacio para mensaje manuscrito. Incluida en todos los pedidos. Versión premium con sobre disponible.</p>
-        <div class="extra-price-row">
-          <span class="extra-price-label">Incluida · Premium</span>
-          <input class="price-input" type="text" placeholder="$  —" style="font-size:16px;" aria-label="Precio tarjeta premium">
-        </div>
-      </div>
-    </div>
-
-    <div class="extra-card">
-      <div class="extra-icon">
-        <svg viewBox="0 0 26 26" fill="none">
-          <path d="M5 20 Q8 14 13 14 Q18 14 21 20" stroke="#2C2A26" stroke-width="0.75" fill="none"/>
-          <path d="M8 16 Q10 10 13 8 Q16 10 18 16" stroke="#C4A4A0" stroke-width="0.7" fill="none"/>
-          <path d="M10 14 Q13 5 13 14" stroke="#9B6E6A" stroke-width="0.6" fill="none"/>
-          <rect x="4" y="20" width="18" height="4" rx="0.5" stroke="#2C2A26" stroke-width="0.7" fill="rgba(232,226,217,0.4)"/>
-        </svg>
-      </div>
-      <div>
-        <h4 class="extra-title">Papel de seda personalizado</h4>
-        <p class="extra-desc">Papel con estampado de marca en tonos crema y polvo. Envuelve cada bouquet con la firma visual de Blooming Muse.</p>
-        <div class="extra-price-row">
-          <span class="extra-price-label">Incluido en pedido</span>
-          <span style="font-family: var(--font-display); font-style:italic; font-size:14px; color: var(--sage);">Sin costo extra</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="extra-card">
-      <div class="extra-icon">
-        <svg viewBox="0 0 26 26" fill="none">
-          <path d="M9 6 Q13 2 17 6 L20 12 Q22 16 20 20 Q18 22 13 22 Q8 22 6 20 Q4 16 6 12 Z" stroke="#2C2A26" stroke-width="0.75" fill="rgba(196,164,160,0.2)"/>
-          <path d="M10 8 Q13 5 16 8 L18 12 Q19 15 18 18 Q16 20 13 20 Q10 20 8 18 Q7 15 8 12Z" stroke="#C4A4A0" stroke-width="0.6" fill="rgba(196,164,160,0.1)"/>
-        </svg>
-      </div>
-      <div>
-        <h4 class="extra-title">Agua con floral preservante</h4>
-        <p class="extra-desc">Para arreglos en jarrón: incluye agua tratada con nutriente floral que extiende la vida del arreglo hasta 2 semanas.</p>
-        <div class="extra-price-row">
-          <span class="extra-price-label">Incluido con jarrón</span>
-          <span style="font-family: var(--font-display); font-style:italic; font-size:14px; color: var(--sage);">Sin costo extra</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="extra-card">
-      <div class="extra-icon">
-        <svg viewBox="0 0 26 26" fill="none">
-          <circle cx="13" cy="13" r="8" stroke="#2C2A26" stroke-width="0.75" fill="none"/>
-          <path d="M9 13 Q11 9 13 8 Q15 9 17 13 Q15 17 13 18 Q11 17 9 13Z" stroke="#B8A89A" stroke-width="0.6" fill="rgba(184,168,154,0.2)"/>
-          <line x1="13" y1="5" x2="13" y2="3" stroke="#2C2A26" stroke-width="0.6"/>
-          <line x1="13" y1="21" x2="13" y2="23" stroke="#2C2A26" stroke-width="0.6"/>
-          <line x1="5" y1="13" x2="3" y2="13" stroke="#2C2A26" stroke-width="0.6"/>
-          <line x1="21" y1="13" x2="23" y2="13" stroke="#2C2A26" stroke-width="0.6"/>
+          <circle cx="13" cy="13" r="9" stroke="#2C2A26" stroke-width=".8" fill="none"/>
+          <path d="M9 13 Q11 9 13 8 Q15 9 17 13 Q15 17 13 18 Q11 17 9 13Z" stroke="#B8A89A" stroke-width=".65" fill="rgba(184,168,154,.2)"/>
+          <line x1="13" y1="4" x2="13" y2="2" stroke="#2C2A26" stroke-width=".65"/>
+          <line x1="13" y1="22" x2="13" y2="24" stroke="#2C2A26" stroke-width=".65"/>
+          <line x1="4" y1="13" x2="2" y2="13" stroke="#2C2A26" stroke-width=".65"/>
+          <line x1="22" y1="13" x2="24" y2="13" stroke="#2C2A26" stroke-width=".65"/>
+          <path d="M8 8 L5 5 M18 8 L21 5 M8 18 L5 21 M18 18 L21 21" stroke="#2C2A26" stroke-width=".5"/>
         </svg>
       </div>
       <div>
         <h4 class="extra-title">Entrega a domicilio</h4>
-        <p class="extra-desc">Servicio de entrega en zona local con horario acordado. Disponible en fechas especiales con agendamiento previo mínimo 24 hrs.</p>
-        <div class="extra-price-row">
+        <p class="extra-desc">Servicio de entrega en zona Monterrey y área metropolitana. Coordinamos horario contigo al momento del pedido. Mínimo 24 hrs de anticipación en fechas especiales.</p>
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
           <span class="extra-price-label">Costo de envío</span>
-          <input class="price-input" type="text" placeholder="$  —" style="font-size:16px;" aria-label="Precio entrega">
+          <span class="extra-price">A cotizar</span>
         </div>
       </div>
     </div>
 
-    <div class="extra-card">
+    <!-- JARRÓN -->
+    <div class="extra-card reveal reveal-d1">
       <div class="extra-icon">
         <svg viewBox="0 0 26 26" fill="none">
-          <path d="M13 4 Q16 8 20 10 Q20 18 13 22 Q6 18 6 10 Q10 8 13 4Z" stroke="#2C2A26" stroke-width="0.75" fill="rgba(138,155,130,0.15)"/>
-          <path d="M13 8 Q15 10 17 12 Q17 17 13 19 Q9 17 9 12 Q11 10 13 8Z" stroke="#8A9B82" stroke-width="0.6" fill="rgba(138,155,130,0.1)"/>
-          <line x1="13" y1="4" x2="13" y2="2" stroke="#2C2A26" stroke-width="0.6"/>
+          <path d="M8 5 C7 6 6 18 6 20 C6 22 9 23 13 23 C17 23 20 22 20 20 C20 18 19 6 18 5 Z" stroke="#2C2A26" stroke-width=".75" fill="rgba(200,225,242,.3)"/>
+          <ellipse cx="13" cy="5" rx="5.5" ry="1.8" stroke="#2C2A26" stroke-width=".7" fill="rgba(185,218,238,.4)"/>
+          <path d="M7 14 L19 14" stroke="#9ABCD0" stroke-width=".5" stroke-dasharray="3,2" opacity=".5"/>
+          <path d="M8 8 Q7 10 7.5 12" stroke="rgba(255,255,255,.7)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
         </svg>
       </div>
       <div>
-        <h4 class="extra-title">Diseño completamente personalizado</h4>
-        <p class="extra-desc">Paleta de colores, flores específicas, mensaje temático o concepto especial. Pedido con al menos 48 hrs de anticipación.</p>
-        <div class="extra-price-row">
-          <span class="extra-price-label">Sin costo adicional</span>
-          <span style="font-family: var(--font-display); font-style:italic; font-size:14px; color: var(--sage);">Según disponibilidad</span>
+        <h4 class="extra-title">Jarrón de vidrio</h4>
+        <p class="extra-desc">Disponible en cilíndrico alto (+$150) o tipo bola (+$90). Eleva la presentación para regalo o decoración duradera en casa.</p>
+        <div style="display:flex;justify-content:space-between;align-items:baseline">
+          <span class="extra-price-label">Costo adicional desde</span>
+          <span class="extra-price">+ $90</span>
         </div>
       </div>
     </div>
+  </div>
 
+  <!-- DISEÑA TU ARREGLO -->
+  <div class="custom-block reveal">
+    <p class="custom-block-eyebrow">✦ &nbsp; Pedido especial &nbsp; ✦</p>
+    <h3 class="custom-block-title">Diseña tu arreglo,<br><em style="font-weight:300">nosotras cotizamos</em></h3>
+    <p class="custom-block-sub">¿Tienes flores favoritas, colores en mente o una ocasión muy especial? Cuéntanos tu idea — paleta, estilo, tamaño, presupuesto — y creamos juntas algo único hecho con intención para ti.</p>
+    <a href="https://instagram.com/blooming.musemty" target="_blank" class="custom-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      <span>Escríbenos en Instagram</span>
+    </a>
   </div>
 </section>
 
-<!-- ============================================
-     SECCIÓN 4: PALETA DE MARCA
-============================================ -->
-<section id="tab-paleta" class="bm-section">
+<!-- ══════════════════════════════════
+     TAB: INSPO
+══════════════════════════════════ -->
+<section id="tab-inspo" class="bm-section">
   <div class="section-header">
-    <h2 class="section-title">Paleta de marca</h2>
+    <h2 class="section-title">Inspo</h2>
     <div class="section-divider"></div>
-    <p class="section-sub">Sistema de color e identidad visual</p>
+    <p class="section-sub">Arreglos reales · hechos con intención</p>
   </div>
 
-  <div class="palette-grid">
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#F0EDE6;"></div>
-      <div class="swatch-info">
-        <p class="swatch-name">Crema base</p>
-        <p class="swatch-hex">#F0EDE6</p>
-        <p class="swatch-role">Fondo principal</p>
-      </div>
+  <p class="inspo-intro reveal">Una muestra de lo que hacemos con amor desde Monterrey. Cada bouquet es único — aquí encontrarás inspiración para tu pedido personalizado.</p>
+
+  <div class="gallery-grid">
+    <div class="gallery-item reveal" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/flores_1.jpeg" alt="Ramo Blooming Muse — alstroemeria y crisantemos">
+      <div class="gallery-overlay"></div>
     </div>
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#E8E2D9;"></div>
-      <div class="swatch-info">
-        <p class="swatch-name">Pergamino</p>
-        <p class="swatch-hex">#E8E2D9</p>
-        <p class="swatch-role">Fondos secundarios</p>
-      </div>
+    <div class="gallery-item reveal reveal-d1" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/flores_2.jpeg" alt="Ramo Blooming Muse — rosas rojas y claveles">
+      <div class="gallery-overlay"></div>
     </div>
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#E8D5D0;"></div>
-      <div class="swatch-info">
-        <p class="swatch-name">Blush</p>
-        <p class="swatch-hex">#E8D5D0</p>
-        <p class="swatch-role">Acentos suaves</p>
-      </div>
+    <div class="gallery-item reveal reveal-d2" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/flores_3.jpeg" alt="Ramo Blooming Muse — alstroemeria y lisianthus">
+      <div class="gallery-overlay"></div>
     </div>
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#C4A4A0;"></div>
-      <div class="swatch-info">
-        <p class="swatch-name">Rosa antiguo</p>
-        <p class="swatch-hex">#C4A4A0</p>
-        <p class="swatch-role">Color principal de marca</p>
-      </div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/flores_4.jpeg" alt="Ramo Blooming Muse — bouquet periódico">
+      <div class="gallery-overlay"></div>
     </div>
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#9B6E6A;"></div>
-      <div class="swatch-info">
-        <p class="swatch-name">Rosa profundo</p>
-        <p class="swatch-hex">#9B6E6A</p>
-        <p class="swatch-role">Énfasis y bordes</p>
-      </div>
+    <div class="gallery-item reveal reveal-d1" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/flores_6.jpeg" alt="Ramo Blooming Muse — jarrón bola">
+      <div class="gallery-overlay"></div>
     </div>
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#8A9B82;"></div>
-      <div class="swatch-info">
-        <p class="swatch-name">Salvia</p>
-        <p class="swatch-hex">#8A9B82</p>
-        <p class="swatch-role">Color vegetal / follaje</p>
-      </div>
+    <div class="gallery-item reveal reveal-d2" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/flores_8.jpeg" alt="Ramo Blooming Muse — lisianthus morado">
+      <div class="gallery-overlay"></div>
     </div>
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#B8A89A;"></div>
-      <div class="swatch-info">
-        <p class="swatch-name">Polvo</p>
-        <p class="swatch-hex">#B8A89A</p>
-        <p class="swatch-role">Textos secundarios</p>
-      </div>
-    </div>
-    <div class="swatch-card">
-      <div class="swatch-block" style="background:#2C2A26;"></div>
-      <div class="swatch-info">
-        <p class="swatch-name">Tinta</p>
-        <p class="swatch-hex">#2C2A26</p>
-        <p class="swatch-role">Texto principal / líneas</p>
-      </div>
+    <div class="gallery-item reveal" onclick="openLightbox(this)">
+      <img src="/mnt/user-data/uploads/flores_9.jpeg" alt="Tarjeta Blooming Muse">
+      <div class="gallery-overlay"></div>
     </div>
   </div>
 
-  <div class="typography-section">
-    <p class="typo-title">Sistema tipográfico</p>
-    <div class="typo-row">
-      <span class="typo-label">Display</span>
-      <span style="font-family: var(--font-display); font-size: 28px; font-weight: 300; letter-spacing: 0.06em;">Cormorant Garamond Light</span>
-    </div>
-    <div class="typo-row">
-      <span class="typo-label">Display itálica</span>
-      <span style="font-family: var(--font-display); font-size: 24px; font-style: italic; font-weight: 300; letter-spacing: 0.04em;">Hecho con intención.</span>
-    </div>
-    <div class="typo-row">
-      <span class="typo-label">Cuerpo</span>
-      <span style="font-family: var(--font-body); font-size: 14px; font-weight: 300; letter-spacing: 0.02em; color: var(--ink-light);">Jost Light — texto de catálogo y descripciones</span>
-    </div>
-    <div class="typo-row">
-      <span class="typo-label">Etiquetas</span>
-      <span style="font-family: var(--font-body); font-size: 10px; font-weight: 300; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted);">Jost Light — mayúsculas espaciadas</span>
-    </div>
+  <!-- NOTA INSTAGRAM -->
+  <div class="inspo-ig-note reveal" style="margin-top:2.5rem">
+    <p>¿Quieres ver más inspo y nuestros arreglos más recientes? Síguenos en Instagram para no perderte nada — ahí publicamos cada pieza que hacemos.</p>
+    <a href="https://instagram.com/blooming.musemty" target="_blank" class="inspo-ig-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      Más inspo en @blooming.musemty
+    </a>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+  <div class="lightbox-inner" onclick="event.stopPropagation()">
+    <button class="lightbox-close" onclick="closeLightbox()">Cerrar ✕</button>
+    <img id="lightbox-img" src="" alt="">
+  </div>
+</div>
+
+<!-- FOOTER -->
 <footer class="bm-footer">
   <p class="footer-logo">Blooming Muse</p>
-  <div style="display:flex; align-items:center; justify-content:center; gap:12px; margin-bottom:0.75rem;">
-    <span style="height:0.5px; width:36px; background: var(--parchment); display:block;"></span>
-    <p class="section-sub" style="margin:0;">Florería</p>
-    <span style="height:0.5px; width:36px; background: var(--parchment); display:block;"></span>
+  <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:.75rem">
+    <span style="height:.5px;width:36px;background:var(--parchment);display:block"></span>
+    <span class="section-sub" style="margin:0">Florería</span>
+    <span style="height:.5px;width:36px;background:var(--parchment);display:block"></span>
   </div>
   <p class="footer-tagline">Hecho con intención.</p>
-  <p class="footer-links">@blooming.muse · Pedidos por mensaje directo · Monclova, Coahuila</p>
+  <p class="footer-links">
+    Monterrey, Nuevo León · México<br>
+    <a href="https://instagram.com/blooming.musemty" target="_blank">@blooming.musemty</a><br>
+    Pedidos por mensaje directo
+  </p>
 </footer>
 
-<!-- ===== TOOLBAR EDICIÓN ===== -->
-<div class="edit-toolbar no-print">
-  <button class="toolbar-btn" onclick="window.print()">↓ Imprimir / Guardar PDF</button>
-  <button class="toolbar-btn secondary" onclick="clearPrices()">Limpiar precios</button>
+<!-- TOOLBAR -->
+<div class="edit-toolbar">
+  <button class="toolbar-btn" onclick="window.print()">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    Guardar PDF
+  </button>
 </div>
 
 <script>
-  // === NAVEGACIÓN ENTRE SECCIONES ===
-  function showTab(id, btn) {
-    document.querySelectorAll('.bm-section').forEach(s => s.classList.remove('active'));
-    document.querySelectorAll('.bm-nav button').forEach(b => b.classList.remove('active'));
-    document.getElementById('tab-' + id).classList.add('active');
-    if (btn) btn.classList.add('active');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+// ── TABS ──
+function showTab(id, btn) {
+  document.querySelectorAll('.bm-section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.bm-nav button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + id).classList.add('active');
+  if (btn) btn.classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(checkReveal, 100);
+}
 
-  // === LIMPIAR PRECIOS ===
-  function clearPrices() {
-    if (confirm('¿Limpiar todos los precios ingresados?')) {
-      document.querySelectorAll('.price-input').forEach(i => i.value = '');
-    }
-  }
-
-  // === GUARDAR PRECIOS EN localStorage ===
-  function savePrices() {
-    const inputs = document.querySelectorAll('.price-input');
-    const data = {};
-    inputs.forEach((input, idx) => {
-      data['price_' + idx] = input.value;
-    });
-    try { localStorage.setItem('bm_prices', JSON.stringify(data)); } catch(e) {}
-  }
-
-  function loadPrices() {
-    try {
-      const data = JSON.parse(localStorage.getItem('bm_prices') || '{}');
-      const inputs = document.querySelectorAll('.price-input');
-      inputs.forEach((input, idx) => {
-        if (data['price_' + idx]) input.value = data['price_' + idx];
-      });
-    } catch(e) {}
-  }
-
-  document.querySelectorAll('.price-input').forEach(input => {
-    input.addEventListener('change', savePrices);
-    input.addEventListener('blur', savePrices);
+// ── SCROLL REVEAL ──
+function checkReveal() {
+  document.querySelectorAll('.reveal').forEach(el => {
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.92) el.classList.add('visible');
   });
+}
+window.addEventListener('scroll', checkReveal, { passive: true });
+window.addEventListener('load', checkReveal);
+setTimeout(checkReveal, 200);
 
-  loadPrices();
+// ── LIGHTBOX ──
+function openLightbox(item) {
+  const img = item.querySelector('img');
+  document.getElementById('lightbox-img').src = img.src;
+  document.getElementById('lightbox-img').alt = img.alt;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
 
-  // === ANIMACIÓN ENTRADA SECCIONES ===
-  document.querySelectorAll('.bm-section').forEach(section => {
-    section.style.animation = 'none';
-  });
-
-  const observer = new MutationObserver(mutations => {
-    mutations.forEach(mutation => {
-      if (mutation.target.classList.contains('active')) {
-        mutation.target.style.animation = 'none';
-        requestAnimationFrame(() => {
-          mutation.target.style.animation = 'fadeUp 0.4s ease both';
-        });
-      }
-    });
-  });
-
-  document.querySelectorAll('.bm-section').forEach(section => {
-    observer.observe(section, { attributes: true, attributeFilter: ['class'] });
-  });
+// ── PARTÍCULAS DE PÉTALOS ──
+(function() {
+  const container = document.getElementById('petals');
+  const colors = ['rgba(196,164,160,.35)', 'rgba(184,168,154,.3)', 'rgba(232,213,208,.4)', 'rgba(138,155,130,.25)', 'rgba(240,237,230,.5)'];
+  for (let i = 0; i < 18; i++) {
+    const p = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+    const size = 6 + Math.random() * 10;
+    p.setAttribute('width', size);
+    p.setAttribute('height', size * 1.4);
+    p.setAttribute('viewBox', '0 0 10 14');
+    p.setAttribute('fill', colors[Math.floor(Math.random() * colors.length)]);
+    p.innerHTML = '<ellipse cx="5" cy="7" rx="4.5" ry="6.5"/>';
+    p.classList.add('petal');
+    p.style.left = Math.random() * 100 + 'vw';
+    p.style.top = '-20px';
+    p.style.animationDuration = (12 + Math.random() * 20) + 's';
+    p.style.animationDelay = (Math.random() * 18) + 's';
+    container.appendChild(p);
+  }
+})();
 </script>
-
 </body>
 </html>
